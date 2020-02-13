@@ -1,0 +1,11 @@
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\bin\Debug\netcoreapp3.1\XMLDocumentGenerator.exe
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\bin\Debug\netcoreapp3.1\XMLDocumentGenerator.deps.json
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\bin\Debug\netcoreapp3.1\XMLDocumentGenerator.runtimeconfig.json
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\bin\Debug\netcoreapp3.1\XMLDocumentGenerator.runtimeconfig.dev.json
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\bin\Debug\netcoreapp3.1\XMLDocumentGenerator.dll
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\bin\Debug\netcoreapp3.1\XMLDocumentGenerator.pdb
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\obj\Debug\netcoreapp3.1\XMLDocumentGenerator.csprojAssemblyReference.cache
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\obj\Debug\netcoreapp3.1\XMLDocumentGenerator.AssemblyInfoInputs.cache
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\obj\Debug\netcoreapp3.1\XMLDocumentGenerator.AssemblyInfo.cs
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\obj\Debug\netcoreapp3.1\XMLDocumentGenerator.dll
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\obj\Debug\netcoreapp3.1\XMLDocumentGenerator.pdb

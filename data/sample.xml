@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Order>
+  <Customer>SAMPLE</Customer>
+  <CustomerReference1>123456</CustomerReference1>
+  <CustomerReference2>JKU786</CustomerReference2>
+  <CustomerReference3>654321</CustomerReference3>
+</Order>
