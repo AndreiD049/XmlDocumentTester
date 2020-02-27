@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="XmlTesterPresentation.UIControls.EditTestCaseControlExpander"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:XmlTesterPresentation.UIControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="MarginStyle">
+            <Setter Property="TextBox.Margin" Value="0,10,0,0"/>
+            <Setter Property="TextBlock.Margin" Value="0,10,0,0"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="20 10 20 10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>    
+            <RowDefinition Height="Auto"/>    
+            <RowDefinition Height="Auto"/>    
+            <RowDefinition Height="Auto"/>    
+        </Grid.RowDefinitions>
+        <TextBlock Text="Edit Test Case" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource MarginStyle}"/>
+        <TextBlock Text="Name: " Grid.Row="1" Grid.Column="0" Style="{StaticResource MarginStyle}"/>
+        <TextBox x:Name="newTestCaseName" Text="{Binding Name}" Grid.Row="1" Grid.Column="1" MinWidth="200" Style="{StaticResource MarginStyle}"/>
+        <TextBlock Text="Save Location: " Grid.Row="2" Grid.Column="0" Style="{StaticResource MarginStyle}"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource MarginStyle}">
+            <TextBox x:Name="newTestCasePath" Text="{Binding SaveLocation}" MinWidth="200" MaxWidth="500" IsReadOnly="True"/>
+            <Button Content="..." Click="OpenDlg_Clicked"/>
+        </StackPanel>
+        <Button Content="Save" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource RoundButtonTemplate}" HorizontalAlignment="Center" Width="70" Height="25" Margin="0,20,0,20" Click="Save_Clicked"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+C:\Users\Андрей\source\repos\XmlTesterPresentation\bin\Debug\netcoreapp3.1\XmlTesterPresentation.exe
+C:\Users\Андрей\source\repos\XmlTesterPresentation\bin\Debug\netcoreapp3.1\XmlTesterPresentation.deps.json
+C:\Users\Андрей\source\repos\XmlTesterPresentation\bin\Debug\netcoreapp3.1\XmlTesterPresentation.runtimeconfig.json
+C:\Users\Андрей\source\repos\XmlTesterPresentation\bin\Debug\netcoreapp3.1\XmlTesterPresentation.runtimeconfig.dev.json
+C:\Users\Андрей\source\repos\XmlTesterPresentation\bin\Debug\netcoreapp3.1\XmlTesterPresentation.dll
+C:\Users\Андрей\source\repos\XmlTesterPresentation\bin\Debug\netcoreapp3.1\XmlTesterPresentation.pdb
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation.csprojAssemblyReference.cache
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation_MarkupCompile.cache
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation_MarkupCompile.lref
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation.g.resources
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation.AssemblyInfoInputs.cache
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation.AssemblyInfo.cs
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation.dll
+C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.1\XmlTesterPresentation.pdb

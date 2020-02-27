@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="UIControls\EditTestCaseControlExpander.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\NewRuleFixedControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\NewRulesButtonsList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\RuleListControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\RuleTreeControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="UIControls\EditTestCaseControlExpander.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\NewRuleFixedControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\NewRulesButtonsList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\RuleListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\RuleTreeControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

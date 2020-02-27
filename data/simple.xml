@@ -1,0 +1,8 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<Root>
+  <Order>
+    <Customer>PESABIC</Customer>
+    <CustomerReference1>0123141</CustomerReference1>
+    <CustomerReference2>1234563</CustomerReference2>
+  </Order>
+</Root>

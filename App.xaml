@@ -1,0 +1,37 @@
+﻿<Application x:Class="XmlTesterPresentation.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:XmlTesterPresentation"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="RoundButtonTemplate" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="8" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Control}" x:Key="NoInfoPlaceholder">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count}" Value="0">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">No items to display</TextBlock>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
+</Application>

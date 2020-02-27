@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSuite>
+	<Name>db0088b7-d8ba-4af6-bb23-5e3303e00e0c.xml</Name>
+	<Document>
+		<Name>TwoBatches - 637181803955098533.xml</Name>
+		<FullPath>C:\Users\Андрей\source\repos\XmlTesterPresentation\data\Documents\db0088b7-d8ba-4af6-bb23-5e3303e00e0c.xml</FullPath>
+	</Document>
+	<TestCases>
+		<TestCase>
+			<Name>test</Name>
+			<SaveLocation>G:\kms</SaveLocation>
+			<Rules>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/item_number</Path>
+					<Type>Fixed</Type>
+					<FixedString>test</FixedString>
+				</Rule>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/price</Path>
+					<Type>Fixed</Type>
+					<FixedString>test</FixedString>
+				</Rule>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/size[1]/color_swatch[1]</Path>
+					<Type>Fixed</Type>
+					<FixedString>1234</FixedString>
+				</Rule>
+			</Rules>
+		</TestCase>
+		<TestCase>
+			<Name>TwoBatches</Name>
+			<SaveLocation>G:\kms</SaveLocation>
+			<Rules>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/size[1]/color_swatch[1]</Path>
+					<Type>Fixed</Type>
+					<FixedString>3091234123</FixedString>
+				</Rule>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/size[1]/color_swatch[2]</Path>
+					<Type>Fixed</Type>
+					<FixedString>PESABIC</FixedString>
+				</Rule>
+			</Rules>
+		</TestCase>
+		<TestCase>
+			<Name>test</Name>
+			<SaveLocation>G:\kms</SaveLocation>
+			<Rules />
+		</TestCase>
+	</TestCases>
+</TestSuite>
