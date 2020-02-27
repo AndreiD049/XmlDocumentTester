@@ -5,7 +5,7 @@ using XMLDocumentGenerator.Interfaces;
 
 namespace XMLDocumentGenerator
 {
-    interface IApplication
+    public interface IApplication
     {
         public List<IXMLDocument> XmlDocuments { get; set; }
         public void run();

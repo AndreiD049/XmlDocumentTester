@@ -8,19 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\я\\.nuget\\packages\\": {}
+    "C:\\Users\\Андрей\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\XMLDocumentGenerator.csproj",
+      "projectUniqueName": "C:\\Users\\Андрей\\source\\repos\\XmlDocumentTester\\XMLDocumentGenerator.csproj",
       "projectName": "XMLDocumentGenerator",
-      "projectPath": "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\XMLDocumentGenerator.csproj",
-      "packagesPath": "C:\\Users\\я\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\obj\\",
+      "projectPath": "C:\\Users\\Андрей\\source\\repos\\XmlDocumentTester\\XMLDocumentGenerator.csproj",
+      "packagesPath": "C:\\Users\\Андрей\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Андрей\\source\\repos\\XmlDocumentTester\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\я\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Андрей\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

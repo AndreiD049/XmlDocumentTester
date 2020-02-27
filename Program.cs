@@ -1,36 +1,27 @@
 ﻿using System;
-using System.Xml;
 using XMLDocumentGenerator.src;
+using XMLDocumentGenerator.src.TransformRules;
+using XMLDocumentGenerator.Interfaces;
+using System.Collections.Generic;
 
 namespace XMLDocumentGenerator
 {
     class Program
     {
-        public static string getFullPath(XmlNode node, string delimiter = "/")
-        {
-            if (node.ParentNode is null || node.ParentNode.NodeType == XmlNodeType.Document)
-            {
-                return node.Name;
-            }
-            else if (node.NodeType != XmlNodeType.Element)
-            {
-                return getFullPath(node.ParentNode, delimiter);
-            }
-            else
-            {
-                return getFullPath(node.ParentNode, delimiter) + $"{delimiter}{node.Name}";
-            }
-        }
         static void Main(string[] args)
         {
-            XMLDoc[] items = new XMLDoc[] { new XMLDoc(@"C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\sample.xml"), 
-                                            new XMLDoc(@"C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\sample.xml")};
+            TestCase test1 = new TestCase("MyTest", @"C:\Users\Андрей\source\repos\XmlDocumentTester\data\sample3.xml");
+            test1.AddRule("Order.Customer", new FixedStringTransformRule("PESABIC"));
+            test1.AddRule("Order.CustomerReference1", new RandomStringTransformRule(7, "1234567890", "309"));
+            test1.AddRule("Order.CustomerReference2", new RandomStringTransformRule(10));
+            test1.AddRule("Order.CustomerReference3", new RandomStringTransformRule(10));
+            TestCase[] cases = new TestCase[] { test1,
+                                                new TestCase("Two Batches", @"C:\Users\Андрей\source\repos\XmlDocumentTester\data\sample4.xml")};
+            XMLDoc doc1 = new XMLDoc(@"C:\Users\Андрей\source\repos\XmlDocumentTester\data\sample.xml", cases);
+            XMLDoc[] items = new XMLDoc[] { doc1 };
             IApplication app = new Application(items);
             app.run();
-            Console.WriteLine(((XMLDoc)app.XmlDocuments[0]).root.ChildNodes[0].ChildNodes[0].Value);
-            XmlDocument doc = new XmlDocument();
-            doc.Load(@"C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\sample.xml");
-            Console.WriteLine(getFullPath(doc.DocumentElement.ChildNodes[2].ChildNodes[0], "."));
+            app.XmlDocuments[0].testCases[0].generate();
         }
     }
 }
