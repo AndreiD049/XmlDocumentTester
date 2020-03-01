@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Padding="10" PreviewMouseWheel="ListViewScrollViewer_PreviewMouseWheel">
-            <TreeView x:Name="docTreeViewer"></TreeView>
+            <TreeView x:Name="docTreeViewer" SelectedItemChanged="Selected_Changed">
+            <TreeView.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+            </TreeView.Resources>
+            </TreeView>
         </ScrollViewer>
 </UserControl>

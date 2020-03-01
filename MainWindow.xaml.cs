@@ -29,10 +29,15 @@ namespace XmlTesterPresentation
         public MainWindow()
         {
             InitializeComponent();
-            IApplication app = new XMLApplication(@"C:\Users\Андрей\source\repos\XmlTesterPresentation\data\");
+            IApplication app = new XMLApplication(@"C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\");
             XmlDocLoader.LoadXmlDocuments(app);
             App = app;
-            _mainFrame.Navigate(new DocPage(app));
+            ContentArea.Content = new DocPage(app, ContentArea);
+        }
+
+        private void GoToDocuments_Clicked(object source, RoutedEventArgs e)
+        {
+            ContentArea.Content = new DocPage(App, ContentArea);
         }
     }
 }

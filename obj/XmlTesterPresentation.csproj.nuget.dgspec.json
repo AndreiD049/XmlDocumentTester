@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Андрей\\source\\repos\\XmlTesterPresentation\\XmlTesterPresentation.csproj": {}
+    "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\XmlTesterPresentation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Андрей\\source\\repos\\XmlTesterPresentation\\XmlTesterPresentation.csproj": {
+    "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\XmlTesterPresentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Андрей\\source\\repos\\XmlTesterPresentation\\XmlTesterPresentation.csproj",
+        "projectUniqueName": "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\XmlTesterPresentation.csproj",
         "projectName": "XmlTesterPresentation",
-        "projectPath": "C:\\Users\\Андрей\\source\\repos\\XmlTesterPresentation\\XmlTesterPresentation.csproj",
-        "packagesPath": "C:\\Users\\Андрей\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Андрей\\source\\repos\\XmlTesterPresentation\\obj\\",
+        "projectPath": "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\XmlTesterPresentation.csproj",
+        "packagesPath": "C:\\Users\\я\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\я\\source\\repos\\XMLDocumentGenerator\\XMLDocumentGenerator\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Андрей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\я\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

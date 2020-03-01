@@ -4,17 +4,17 @@
 exe
 C#
 .cs
-C:\Users\Андрей\source\repos\XmlTesterPresentation\obj\Debug\netcoreapp3.0\
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\obj\Debug\netcoreapp3.0\
 XmlTesterPresentation
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0
-C:\Users\Андрей\source\repos\XmlTesterPresentation\App.xaml
-14-1570786619
+C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\App.xaml
+17152275136
 
-40-857009899
-193342743619
-DocPage.xaml;MainWindow.xaml;RuleViewer.xaml;TestCaseViewer.xaml;UIControls\EditControlExpander.xaml;UIControls\EditTestCaseControlExpander.xaml;UIControls\NewDocControlExpander.xaml;UIControls\NewRuleFixedControl.xaml;UIControls\NewRulesButtonsList.xaml;UIControls\NewTestCaseControlExpander.xaml;UIControls\RuleListControl.xaml;UIControls\RuleTreeControl.xaml;Views\FixedStringRuleProps.xaml;Views\RandomStringRuleProps.xaml;
+491340029405
+193-1291981124
+DocPage.xaml;MainWindow.xaml;RuleViewer.xaml;TestCaseViewer.xaml;UIControls\DocumentTreeElements\AtributeNode.xaml;UIControls\DocumentTreeElements\ElementNode.xaml;UIControls\DocumentTreeElements\TextNode.xaml;UIControls\EditControlExpander.xaml;UIControls\EditTestCaseControlExpander.xaml;UIControls\NewDocControlExpander.xaml;UIControls\NewRulesButtonsList.xaml;UIControls\NewTestCaseControlExpander.xaml;UIControls\RuleListControl.xaml;UIControls\RuleTreeControl.xaml;ViewsModels\RulePropViews\FixedStringRuleProps.xaml;ViewsModels\RulePropViews\RandomStringRuleProps.xaml;ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml;
 
 False
 

@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <Frame x:Name="_mainFrame"/>
+        <Button Content="Documents" Click="GoToDocuments_Clicked"/>
+        <ContentControl x:Name="ContentArea"/>
     </DockPanel>
 </Window>

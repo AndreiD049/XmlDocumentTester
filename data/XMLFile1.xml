@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Mapping>
+  <Header>
+    <Name>Test</Name>
+    <Date>2020.02.29</Date>
+  </Header>
+  <Order>
+    <Customer>PESABIC</Customer>
+    <CustomerReference1>309125464</CustomerReference1>
+    <CustomerReference2>654321</CustomerReference2>
+    <CustomerReference3>852412</CustomerReference3>
+  </Order>
+</Mapping>
+

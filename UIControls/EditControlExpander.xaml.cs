@@ -21,7 +21,7 @@ namespace XmlTesterPresentation.UIControls
     {
         public IXMLDocument Document { get; set; }
         public DocPage Page { get; set; }
-        public EditControlExpander(Page page, IXMLDocument doc)
+        public EditControlExpander(Control page, IXMLDocument doc)
         {
             InitializeComponent();
             Document = doc;

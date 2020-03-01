@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.Views;
+using XmlTesterPresentation.ViewsModels;
 using XmlTesterPresentation.UIControls;
 using XmlTesterPresentation.Interfaces;
 using System.Windows.Data;
@@ -19,22 +19,27 @@ namespace XmlTesterPresentation
     /// <summary>
     /// Interaction logic for RuleViewer.xaml
     /// </summary>
-    public partial class RuleViewer : Page
+    public partial class RuleViewer : UserControl
     {
-        private RuleViewModel ViewModel { get; set; }
+        public RuleViewModel ViewModel { get; set; }
         public ITestCase testCase { get; set; }
-        public RuleViewer(ITestCase testCase)
+        public TreeView docTreeViewControl { get; set; }
+        public ContentControl ContentArea { get; set; }
+        public ITransformRuleProps Props { get; set; }
+        public RuleViewer(ITestCase testCase, ContentControl content)
         {
             InitializeComponent();
             this.testCase = testCase;
+            ContentArea = content;
             ViewModel = new RuleViewModel(this, testCase);
+            docTreeViewControl = ruleTree.docTreeViewer;
             ruleList.ViewModel = ViewModel;
             newRuleButtonList.View = this;
             newRuleButtonList.ViewModel = ViewModel;
             ruleTree.View = this;
             ruleTree.ViewModel = ViewModel;
         }
-        
+
         private void AddNew_Clicked(object source, RoutedEventArgs e)
         {
             newRulesList.IsEnabled = true;

@@ -19,7 +19,7 @@
                     </ListView.ItemTemplate>
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
-                            <EventSetter Event="Selected" Handler="UpdateRuleProps"/>
+                            <EventSetter Event="PreviewMouseDown" Handler="UpdateRuleProps"/>
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>

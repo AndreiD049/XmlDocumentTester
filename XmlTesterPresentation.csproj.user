@@ -2,10 +2,19 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="UIControls\EditTestCaseControlExpander.xaml.cs">
+    <Compile Update="DocPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UIControls\NewRuleFixedControl.xaml.cs">
+    <Compile Update="UIControls\DocumentTreeElements\AtributeNode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\DocumentTreeElements\ElementNode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\DocumentTreeElements\TextNode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UIControls\EditTestCaseControlExpander.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UIControls\NewRulesButtonsList.xaml.cs">
@@ -17,12 +26,24 @@
     <Compile Update="UIControls\RuleTreeControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="UIControls\EditTestCaseControlExpander.xaml">
+    <Page Update="DocPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UIControls\NewRuleFixedControl.xaml">
+    <Page Update="UIControls\DocumentTreeElements\AtributeNode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\DocumentTreeElements\ElementNode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\DocumentTreeElements\TextNode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\EditTestCaseControlExpander.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UIControls\NewRulesButtonsList.xaml">
@@ -32,6 +53,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UIControls\RuleTreeControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

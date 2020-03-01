@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.Views;
+using XmlTesterPresentation.ViewsModels;
 using XmlTesterPresentation.src.TransformRules;
 using XmlTesterPresentation.src;
 using XmlTesterPresentation.Interfaces;
@@ -39,14 +39,23 @@ namespace XmlTesterPresentation.UIControls
         {
             string path = Utils.getFullPath(((NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.Node);
             FixedStringTransformRule rule = new FixedStringTransformRule("", path);
-            RulePropsDrawer.DrawRule(View.ruleProps, rule);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
         }
 
         private void NewRandom_Clicked(object source, RoutedEventArgs e)
         {
-            RandomStringTransformRule rule = new RandomStringTransformRule(0, "");
-            RulePropsDrawer.DrawRule(View.ruleProps, rule);
+            string path = Utils.getFullPath(((NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.Node);
+            RandomStringTransformRule rule = new RandomStringTransformRule(0, path);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
+            CollapseExpander();
+        }
+
+        private void NewRepeat_Clicked(object source, RoutedEventArgs e)
+        {
+            string path = Utils.getFullPath(((NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.Node);
+            RepeatNodeTransformRule rule = new RepeatNodeTransformRule(1, path);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
         }
     }

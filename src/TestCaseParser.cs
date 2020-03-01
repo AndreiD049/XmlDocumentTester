@@ -37,7 +37,6 @@ namespace XmlTesterPresentation.src
                 {
                     TransformRuleParser.Parse(rule, testCase);
                 }
-                testCase.generate();
                 resultDoc.TestCases.Add(testCase);
             }
         }

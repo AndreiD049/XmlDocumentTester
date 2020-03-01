@@ -23,7 +23,7 @@ namespace XmlTesterPresentation.UIControls
     {
         public IXMLDocument Document { get; set; }
         public TestCaseViewer Page { get; set; }
-        public NewTestCaseControlExpander(Page page, IXMLDocument doc)
+        public NewTestCaseControlExpander(Control page, IXMLDocument doc)
         {
             InitializeComponent();
             Document = doc;

@@ -20,16 +20,17 @@ namespace XmlTesterPresentation
     /// <summary>
     /// Interaction logic for TestCaseViewer.xaml
     /// </summary>
-    public partial class TestCaseViewer : Page
+    public partial class TestCaseViewer : UserControl 
     {
         public ObservableCollection<ITestCase> TestCases { get; set; }
         public IXMLDocument Document { get; set; }
-        public TestCaseViewer(IXMLDocument doc)
+        public ContentControl ContentArea { get; set; }
+        public TestCaseViewer(IXMLDocument doc, ContentControl content)
         {
             InitializeComponent();
-            this.Title = $"Test Cases - {doc.Name}";
             Document = doc;
             TestCases = new ObservableCollection<ITestCase>(doc.TestCases);
+            ContentArea = content;
             Init();
         }
 
@@ -42,7 +43,7 @@ namespace XmlTesterPresentation
         {
             Button btn = (Button)source;
             ITestCase testCase = btn.DataContext as ITestCase;
-            NavigationService.Navigate(new RuleViewer(testCase));
+            ContentArea.Content = new RuleViewer(testCase, ContentArea);
         }
 
         private void Expander_Collapsed(object source, RoutedEventArgs e)

@@ -23,10 +23,16 @@ namespace XmlTesterPresentation.src
             foreach (string file in files)
             {
                 XmlDocument TestSuiteDoc = new XmlDocument();
-                TestSuiteDoc.Load(file);
+                try
+                {
+                    TestSuiteDoc.Load(file);
+                }
+                catch (XmlException e)
+                {
+                    continue;
+                }
                 XmlNode docName = TestSuiteDoc.DocumentElement.SelectSingleNode("//Document/Name");
                 XmlNode el = TestSuiteDoc.DocumentElement.SelectSingleNode("//Document/FullPath");
-                Console.WriteLine($"raw file is at {el.InnerText}");
                 // check if the path is valid
                 if (File.Exists(el.InnerText))
                 {

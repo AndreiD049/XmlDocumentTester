@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using XmlTesterPresentation.Views;
+using XmlTesterPresentation.ViewsModels;
 using XmlTesterPresentation.Interfaces;
 using XmlTesterPresentation.src;
 using System.Windows.Media;
@@ -33,6 +33,16 @@ namespace XmlTesterPresentation.UIControls
             ScrollViewer scv = (ScrollViewer)sender;
             scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
             e.Handled = true;
+        }
+
+        private void Selected_Changed(object source, RoutedEventArgs e)
+        {
+            TreeView tree = source as TreeView;
+            NodeTreeViewItem node = tree.SelectedItem as NodeTreeViewItem;
+            if (View.Props != null)
+            {
+                View.Props.xPath.Text = Utils.getFullPath(node.Node);
+            }
         }
     }
 }

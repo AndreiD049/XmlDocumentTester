@@ -12,15 +12,17 @@ namespace XmlTesterPresentation
     /// <summary>
     /// Interaction logic for DocPage.xaml
     /// </summary>
-    public partial class DocPage : Page
+    public partial class DocPage : UserControl 
     {
         public ObservableCollection<IXMLDocument> SourceDocs { get; set; }
         public IApplication App { get; set; }
-        public DocPage(IApplication app)
+        public ContentControl ContentArea { get; set; }
+        public DocPage(IApplication app, ContentControl content)
         {
             InitializeComponent();
             this.App = app;
             SourceDocs = new ObservableCollection<IXMLDocument>(app.XmlDocuments);
+            ContentArea = content;
             Init();
 
         }
@@ -34,7 +36,7 @@ namespace XmlTesterPresentation
         {
             Button btn = (Button)source;
             IXMLDocument doc = btn.DataContext as IXMLDocument;
-            NavigationService.Navigate(new TestCaseViewer(doc));
+            ContentArea.Content = new TestCaseViewer(doc, ContentArea);
         }
 
         private void NewFile_Collapsed(object source, RoutedEventArgs e)

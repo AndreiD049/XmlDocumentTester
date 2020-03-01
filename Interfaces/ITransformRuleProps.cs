@@ -6,8 +6,9 @@ using System.Windows.Controls;
 
 namespace XmlTesterPresentation.Interfaces
 {
-    interface ITransformRuleProps
+    public interface ITransformRuleProps
     {
-        public TextBox xPath { get; set; }
+        public TextBox xPath { get; }
+        public void Save();
     }
 }

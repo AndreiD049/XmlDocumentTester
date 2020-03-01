@@ -22,7 +22,7 @@ namespace XmlTesterPresentation.UIControls
     {
         public TestCaseViewer Page { get; set; }
         public ITestCase TestCase { get; set; }
-        public EditTestCaseControlExpander(Page page, ITestCase testCase)
+        public EditTestCaseControlExpander(Control page, ITestCase testCase)
         {
             InitializeComponent();
             Page = (TestCaseViewer)page;

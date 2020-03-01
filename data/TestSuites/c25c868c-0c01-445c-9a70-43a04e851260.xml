@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSuite>
+	<Name>c25c868c-0c01-445c-9a70-43a04e851260.xml</Name>
+	<Document>
+		<Name>test</Name>
+		<FullPath>C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\Documents\c25c868c-0c01-445c-9a70-43a04e851260.xml</FullPath>
+	</Document>
+	<TestCases>
+		<TestCase>
+			<Name>test</Name>
+			<SaveLocation>D:\Bridge</SaveLocation>
+			<Rules>
+				<Rule>
+					<Path>/Mapping/Order[1]/CustomerReference1</Path>
+					<Type>Random</Type>
+					<Length>10</Length>
+					<AllowedChars>ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789</AllowedChars>
+					<Prefix />
+				</Rule>
+				<Rule>
+					<Path>/Mapping/Order[3]/Customer</Path>
+					<Type>Random</Type>
+					<Length>5</Length>
+					<AllowedChars>ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789</AllowedChars>
+					<Prefix>PE</Prefix>
+				</Rule>
+				<Rule>
+					<Path>/Mapping/Order[1]/Customer@Type</Path>
+					<Type>Fixed</Type>
+					<FixedString>Lul</FixedString>
+				</Rule>
+			</Rules>
+		</TestCase>
+	</TestCases>
+</TestSuite>

@@ -21,7 +21,7 @@ namespace XmlTesterPresentation.UIControls
     public partial class NewDocControlExpander : UserControl
     {
         public DocPage RelatedPage { get; set; }
-        public NewDocControlExpander(Page page)
+        public NewDocControlExpander(Control page)
         {
             InitializeComponent();
             RelatedPage = (DocPage)page;

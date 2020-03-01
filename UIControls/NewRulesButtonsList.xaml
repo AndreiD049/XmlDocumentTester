@@ -9,5 +9,6 @@
     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
         <Button Content="Fixed String" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Stretch" Margin="5" Click="NewFixed_Clicked" Tag="Fixed"/>
         <Button Content="Random String" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Stretch" Margin="5" Click="NewRandom_Clicked" Tag="Random"/>
+        <Button Content="Repeat Node" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Stretch" Margin="5" Click="NewRepeat_Clicked" Tag="Random"/>
     </StackPanel>
 </UserControl>

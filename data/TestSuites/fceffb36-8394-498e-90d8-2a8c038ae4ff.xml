@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSuite>
+	<Name>fceffb36-8394-498e-90d8-2a8c038ae4ff.xml</Name>
+	<Document>
+		<Name>test - 637186517944931412.xml</Name>
+		<FullPath>C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\Documents\fceffb36-8394-498e-90d8-2a8c038ae4ff.xml</FullPath>
+	</Document>
+	<TestCases>
+		<TestCase>
+			<Name>test</Name>
+			<SaveLocation>D:\Bridge</SaveLocation>
+			<Rules />
+		</TestCase>
+	</TestCases>
+</TestSuite>

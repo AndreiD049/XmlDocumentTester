@@ -12,12 +12,19 @@ namespace XmlTesterPresentation.src
         {
             if (node == null)
                 return "";
-            return GetXPath_SequentialIteration((XmlElement)node);
+            return GetXPath_SequentialIteration(node);
         }
 
-        public static string GetXPath_SequentialIteration(this XmlElement element)
+        public static string GetXPath_SequentialIteration(this XmlNode element)
         {
-            string path = "/" + element.Name;
+            string path = "";
+            if (element.NodeType == XmlNodeType.Attribute)
+            {
+                path = "@" + element.Name;
+                element = ((XmlAttribute)element).OwnerElement;
+            }
+            path = "/" + element.Name + path;
+
 
             XmlElement parentElement = element.ParentNode as XmlElement;
             if (parentElement != null)
@@ -54,6 +61,13 @@ namespace XmlTesterPresentation.src
             {
                 XmlNode current = stack.Pop();
                 result.Add(current);
+                if (current.Attributes != null)
+                {
+                    foreach (XmlNode attr in current.Attributes)
+                    {
+                        result.Add(attr);
+                    }
+                }
                 foreach (XmlNode n in current.ChildNodes)
                 {
                     if (n.NodeType == XmlNodeType.Element)

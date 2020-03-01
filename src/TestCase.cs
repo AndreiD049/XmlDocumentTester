@@ -49,6 +49,8 @@ namespace XmlTesterPresentation.src
         public bool AddRule(string key, IXMLTransformRule rule)
         {
             bool result = rules.TryAdd(key, rule);
+            if (result)
+                rule.Parent = this;
             return result;
         }
 
@@ -60,7 +62,8 @@ namespace XmlTesterPresentation.src
         public void generate()
         {
             IXMLDocument newDoc = (IXMLDocument)Document.Clone();
-            foreach (XmlNode x in Utils.getAllNodesEnumerable(Document.Root))
+            TransformedDocument = newDoc;
+            foreach (XmlNode x in Utils.getAllNodesEnumerable(TransformedDocument.Root))
             {
                 string fullPath = Utils.getFullPath(x);
                 if (rules.ContainsKey(fullPath))
@@ -68,7 +71,6 @@ namespace XmlTesterPresentation.src
                     rules[fullPath].transform(x);
                 }
             }
-            TransformedDocument = newDoc;
         }
 
         public void setDocument(IXMLDocument doc)

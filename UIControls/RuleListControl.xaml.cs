@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.Views;
+using XmlTesterPresentation.ViewsModels;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;

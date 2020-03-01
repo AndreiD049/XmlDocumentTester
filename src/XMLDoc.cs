@@ -8,6 +8,7 @@ namespace XmlTesterPresentation.src
 {
     class XMLDoc:IXMLDocument, IXmlWriter
     {
+        public XmlDocument doc { get; set; }
         public IApplication App { get; }
         public string FullPath { get; set; }
         public string Name { get; set; }
@@ -51,7 +52,7 @@ namespace XmlTesterPresentation.src
 
         public object Clone()
         {
-            XMLDoc clone = new XMLDoc(FullPath, TestCases, App);
+            XMLDoc clone = new XMLDoc(FullPath, TestCases, App, Name);
             return clone;
         }
 
