@@ -4,10 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XmlTesterPresentation"
+        xmlns:nav="clr-namespace:XmlTesterPresentation.UIControls.Navigation"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <Button Content="Documents" Click="GoToDocuments_Clicked"/>
+        <ContentControl DockPanel.Dock="Top">
+            <nav:NavToolbar x:Name="NavigationToolbar"/>
+        </ContentControl>
         <ContentControl x:Name="ContentArea"/>
     </DockPanel>
 </Window>

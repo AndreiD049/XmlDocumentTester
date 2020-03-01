@@ -23,14 +23,14 @@ namespace XmlTesterPresentation
     public partial class TestCaseViewer : UserControl 
     {
         public ObservableCollection<ITestCase> TestCases { get; set; }
+        public MainWindow MainWin { get; set; }
         public IXMLDocument Document { get; set; }
-        public ContentControl ContentArea { get; set; }
-        public TestCaseViewer(IXMLDocument doc, ContentControl content)
+        public TestCaseViewer(IXMLDocument doc, MainWindow mainWin)
         {
             InitializeComponent();
             Document = doc;
+            MainWin = mainWin;
             TestCases = new ObservableCollection<ITestCase>(doc.TestCases);
-            ContentArea = content;
             Init();
         }
 
@@ -43,7 +43,7 @@ namespace XmlTesterPresentation
         {
             Button btn = (Button)source;
             ITestCase testCase = btn.DataContext as ITestCase;
-            ContentArea.Content = new RuleViewer(testCase, ContentArea);
+            MainWin.NavModel.GoTo_Rules(testCase);
         }
 
         private void Expander_Collapsed(object source, RoutedEventArgs e)

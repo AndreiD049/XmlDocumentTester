@@ -17,6 +17,7 @@ using XmlTesterPresentation;
 using XmlTesterPresentation.src;
 using XmlTesterPresentation.Interfaces;
 using XmlTesterPresentation.src.TransformRules;
+using XmlTesterPresentation.UIControls.Navigation;
 
 namespace XmlTesterPresentation
 {
@@ -26,18 +27,16 @@ namespace XmlTesterPresentation
     public partial class MainWindow : Window
     {
         public IApplication App { get; set; }
+        public NavigationModel NavModel { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            IApplication app = new XMLApplication(@"C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\");
+            IApplication app = new XMLApplication(@"C:\Users\Андрей\source\repos\XmlDocumentTester\data\");
             XmlDocLoader.LoadXmlDocuments(app);
+            NavModel = new NavigationModel(this);
+            NavigationToolbar.Set_NavModel(NavModel);
             App = app;
-            ContentArea.Content = new DocPage(app, ContentArea);
-        }
-
-        private void GoToDocuments_Clicked(object source, RoutedEventArgs e)
-        {
-            ContentArea.Content = new DocPage(App, ContentArea);
+            NavModel.GoTo_Documents();
         }
     }
 }

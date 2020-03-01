@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSuite>
+	<Name>7d247246-c642-4f8c-9099-b12734b1f015.xml</Name>
+	<Document>
+		<Name>test</Name>
+		<FullPath>C:\Users\Андрей\source\repos\XmlDocumentTester\data\Documents\7d247246-c642-4f8c-9099-b12734b1f015.xml</FullPath>
+	</Document>
+	<TestCases>
+		<TestCase>
+			<Name>lul</Name>
+			<SaveLocation>G:\kms</SaveLocation>
+			<Rules>
+				<Rule>
+					<Path>/catalog/product@description</Path>
+					<Type>Fixed</Type>
+					<FixedString>Other</FixedString>
+				</Rule>
+			</Rules>
+		</TestCase>
+	</TestCases>
+</TestSuite>

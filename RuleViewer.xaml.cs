@@ -24,13 +24,13 @@ namespace XmlTesterPresentation
         public RuleViewModel ViewModel { get; set; }
         public ITestCase testCase { get; set; }
         public TreeView docTreeViewControl { get; set; }
-        public ContentControl ContentArea { get; set; }
+        public MainWindow MainWin { get; set; }
         public ITransformRuleProps Props { get; set; }
-        public RuleViewer(ITestCase testCase, ContentControl content)
+        public RuleViewer(ITestCase testCase, MainWindow mainWin)
         {
             InitializeComponent();
             this.testCase = testCase;
-            ContentArea = content;
+            MainWin = mainWin;
             ViewModel = new RuleViewModel(this, testCase);
             docTreeViewControl = ruleTree.docTreeViewer;
             ruleList.ViewModel = ViewModel;

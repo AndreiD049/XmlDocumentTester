@@ -6,6 +6,7 @@ using System.Windows.Navigation;
 using XmlTesterPresentation.Interfaces;
 using XmlTesterPresentation.src;
 using XmlTesterPresentation.UIControls;
+using XmlTesterPresentation.UIControls.Navigation;
 
 namespace XmlTesterPresentation
 {
@@ -16,13 +17,13 @@ namespace XmlTesterPresentation
     {
         public ObservableCollection<IXMLDocument> SourceDocs { get; set; }
         public IApplication App { get; set; }
-        public ContentControl ContentArea { get; set; }
-        public DocPage(IApplication app, ContentControl content)
+        public MainWindow MainWin { get; set; }
+        public DocPage(MainWindow mainWin)
         {
             InitializeComponent();
-            this.App = app;
-            SourceDocs = new ObservableCollection<IXMLDocument>(app.XmlDocuments);
-            ContentArea = content;
+            MainWin = mainWin;
+            this.App = mainWin.App;
+            SourceDocs = new ObservableCollection<IXMLDocument>(mainWin.App.XmlDocuments);
             Init();
 
         }
@@ -36,7 +37,7 @@ namespace XmlTesterPresentation
         {
             Button btn = (Button)source;
             IXMLDocument doc = btn.DataContext as IXMLDocument;
-            ContentArea.Content = new TestCaseViewer(doc, ContentArea);
+            MainWin.NavModel.GoTo_TestCases(doc);
         }
 
         private void NewFile_Collapsed(object source, RoutedEventArgs e)

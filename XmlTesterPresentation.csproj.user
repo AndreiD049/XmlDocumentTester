@@ -17,6 +17,9 @@
     <Compile Update="UIControls\EditTestCaseControlExpander.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UIControls\Navigation\NavToolbar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UIControls\NewRulesButtonsList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +47,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UIControls\EditTestCaseControlExpander.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UIControls\Navigation\NavToolbar.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UIControls\NewRulesButtonsList.xaml">
