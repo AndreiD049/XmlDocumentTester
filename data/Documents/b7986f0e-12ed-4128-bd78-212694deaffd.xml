@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <Header>
+    <Name>Test</Name>
+    <Date>2020.02.29</Date>
+  </Header>
+  <Order>
+    <Customer Type="Lul">PESABIC</Customer>
+    <CustomerReference1>KWmDpMLipW</CustomerReference1>
+    <CustomerReference2>2018657</CustomerReference2>
+    <CustomerReference3>86778423108</CustomerReference3>
+  </Order>
+  <Order>
+    <Customer>PESABIC</Customer>
+    <CustomerReference1>3096117062</CustomerReference1>
+    <CustomerReference2>2012535</CustomerReference2>
+    <CustomerReference3>83618096830</CustomerReference3>
+  </Order>
+  <Order>
+    <Customer>PEU9cjC</Customer>
+    <CustomerReference1>3099736641</CustomerReference1>
+    <CustomerReference2>2012185</CustomerReference2>
+    <CustomerReference3>81285266300</CustomerReference3>
+  </Order>
+</Mapping>

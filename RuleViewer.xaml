@@ -13,8 +13,18 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <uc:RuleTreeControl x:Name="ruleTree"/>
-        <ScrollViewer Grid.Column="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="10 20 10 20" Grid.ColumnSpan="2">
+            <TextBlock FontWeight="Bold" FontFamily="Roboto Black" HorizontalAlignment="Center" FontSize="24">Rules</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">A Rule represents a specific change that need to be done to a node.</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">Example: Change Node value to some string/random string/increment it/duplicate etc...</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">Note: Each Node can have only 1 rule.</TextBlock>
+        </StackPanel>
+        <uc:RuleTreeControl x:Name="ruleTree" Grid.Row="1"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" MinHeight="150"/>

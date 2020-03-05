@@ -12,48 +12,60 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical">
-            <ItemsControl x:Name="caseViewer" Style="{StaticResource NoInfoPlaceholder}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="70"/>
-                            </Grid.ColumnDefinitions>
-                            <Button HorizontalContentAlignment="Left" Click="Test_Clicked">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Ellipse Grid.RowSpan="2" Grid.Column="0" Width="20" Height="20" Fill="LightSeaGreen"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Name:"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Name}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="SaveLocation: " Padding="0 0 20 0"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding SaveLocation}"/>
-                                </Grid>    
-                            </Button>
-                            <Button Content="Generate" Grid.Column="1" HorizontalAlignment="Stretch" Click="Generate_Clicked"/>
-                            <Button Content="Delete" Grid.Column="2" HorizontalAlignment="Stretch" Click="Delete_Clicked"/>
-                            <Button Content="Edit" Grid.Column="3" HorizontalAlignment="Stretch" Click="Edit_Clicked"/>
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Generate All" Style="{StaticResource RoundButtonTemplate}" Width="77" Height="30" Margin="0 20 20 20" Click="GenerateAll_Clicked"/>
-                <Button Content="Add New" Style="{StaticResource RoundButtonTemplate}" Width="77" Height="30" Margin="0 20 0 20" Click="AddNew_Clicked"/>
-            </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="10 20 10 20">
+            <TextBlock FontWeight="Bold" FontFamily="Roboto Black" HorizontalAlignment="Center" FontSize="24">Test Cases</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">Each Test Case is meant to test one specific scenario</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">An example would be a case with 1 Product, 2 Products, Multiple Batches etc...</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">After 'Generate' button is pressed, transformed XML file will be saved on the specified location.</TextBlock>
         </StackPanel>
-        <Expander x:Name="newTestCaseExpander" IsEnabled="False" IsExpanded="False" Grid.Column="1" ExpandDirection="Left" Collapsed="Expander_Collapsed">
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <ItemsControl x:Name="caseViewer" Style="{StaticResource NoInfoPlaceholder}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Style="{StaticResource FESmallText}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="70"/>
+                                </Grid.ColumnDefinitions>
+                                <Button HorizontalContentAlignment="Left" Click="Test_Clicked">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Ellipse Grid.RowSpan="2" Grid.Column="0" Width="20" Height="20" Fill="LightSeaGreen"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Name:"/>
+                                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Name}"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Text="SaveLocation: " Padding="0 0 20 0"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding SaveLocation}"/>
+                                    </Grid>    
+                                </Button>
+                                <Button Content="Generate" Grid.Column="1" HorizontalAlignment="Stretch" Click="Generate_Clicked"/>
+                                <Button Content="Delete" Grid.Column="2" HorizontalAlignment="Stretch" Click="Delete_Clicked"/>
+                                <Button Content="Edit" Grid.Column="3" HorizontalAlignment="Stretch" Click="Edit_Clicked"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Generate All" Style="{StaticResource RoundButtonTemplate}" Width="85" Height="30" Margin="0 20 20 20" Click="GenerateAll_Clicked"/>
+                    <Button Content="Add New" Style="{StaticResource RoundButtonTemplate}" Width="85" Height="30" Margin="0 20 0 20" Click="AddNew_Clicked"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <Expander x:Name="newTestCaseExpander" IsEnabled="False" IsExpanded="False" Grid.Column="1" Grid.RowSpan="2" ExpandDirection="Left" Collapsed="Expander_Collapsed">
             
         </Expander>
     </Grid>

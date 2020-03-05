@@ -9,7 +9,13 @@
 		<TestCase>
 			<Name>test</Name>
 			<SaveLocation>D:\Bridge</SaveLocation>
-			<Rules />
+			<Rules>
+				<Rule>
+					<Path>/Mapping/Order[3]/Customer</Path>
+					<Type>Fixed</Type>
+					<FixedString>XomApp</FixedString>
+				</Rule>
+			</Rules>
 		</TestCase>
 	</TestCases>
 </TestSuite>

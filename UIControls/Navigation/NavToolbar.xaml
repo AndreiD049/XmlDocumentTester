@@ -26,22 +26,15 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="SearchBox" TargetType="TextBox">
-            <Style.Setters>
-                <Setter Property="Visibility" Value="Hidden"/>
-                <Setter Property="Background" Value="LightCoral"/>
-                <Setter Property="Text" Value="Search..."/>
-            </Style.Setters>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding CurrentScreen}" Value="{x:Static local:CurrentScreenType.RulesScreen}">
-                    <Setter Property="Visibility" Value="Visible"/>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+        <ControlTemplate TargetType="Button" x:Key="backButton">
+            <Grid>
+                <Path Fill="{TemplateBinding Background}" Data="M 0,15 20,0 120,0 100,15 120,30 20,30"/>
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+            </Grid>
+        </ControlTemplate>
     </UserControl.Resources>
     <ToolBar>
-        <Button Content="Documents" Width="100" Height="25" Click="Documents_Clicked" Style="{StaticResource DocumentsStyle}"/>
-        <Button Content="Test Cases" Width="100" Height="25" Click="TestCases_Clicked" Style="{StaticResource TestCaseStyle}"/>
-        <TextBox x:Name="Search" Style="{StaticResource SearchBox}" MinWidth="200"/>
+        <Button Content="Documents" Click="Documents_Clicked" Style="{StaticResource DocumentsStyle}" Template="{StaticResource backButton}"/>
+        <Button Content="Test Cases" Click="TestCases_Clicked" Style="{StaticResource TestCaseStyle}" Template="{StaticResource backButton}" Margin="-19 0 0 0"/>
     </ToolBar>
 </UserControl>

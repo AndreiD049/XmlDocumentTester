@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <Style x:Key="MarginStyle">
+        <Style x:Key="MarginStyle" TargetType="{x:Type FrameworkElement}" BasedOn="{StaticResource FESmallText}">
             <Setter Property="TextBox.Margin" Value="0,10,0,0"/>
             <Setter Property="TextBlock.Margin" Value="0,10,0,0"/>
         </Style>
@@ -29,7 +29,7 @@
         <TextBlock Text="Save Location: " Grid.Row="2" Grid.Column="0" Style="{StaticResource MarginStyle}"/>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Style="{StaticResource MarginStyle}">
             <TextBox x:Name="newTestCasePath" Text="{Binding SaveLocation}" MinWidth="200" MaxWidth="500" IsReadOnly="True"/>
-            <Button Content="..." Click="OpenDlg_Clicked"/>
+            <Button Content="..." Click="OpenDlg_Clicked" Style="{StaticResource FESmallText}"/>
         </StackPanel>
         <Button Content="Save" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource RoundButtonTemplate}" HorizontalAlignment="Center" Width="70" Height="25" Margin="0,20,0,20" Click="Save_Clicked"/>
     </Grid>

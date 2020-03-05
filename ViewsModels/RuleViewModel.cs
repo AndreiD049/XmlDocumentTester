@@ -47,7 +47,7 @@ namespace XmlTesterPresentation.ViewsModels
             {
                 foreach (XmlNode attr in currentNode.Attributes)
                 {
-                    TreeViewItem attr_tw = new NodeTreeViewItem(attr);
+                    NodeTreeViewItem attr_tw = new NodeTreeViewItem(attr);
                     tw.Items.Add(attr_tw);
                     RenderXmlElement(attr_tw, attr);
                 }
@@ -58,7 +58,7 @@ namespace XmlTesterPresentation.ViewsModels
             }
         }
 
-        private bool RenderXmlElement(TreeViewItem tw, XmlNode node)
+        private bool RenderXmlElement(NodeTreeViewItem tw, XmlNode node)
         {
             Control ctrl;
             switch (node.NodeType)
@@ -82,6 +82,7 @@ namespace XmlTesterPresentation.ViewsModels
                     tw.Header = ctrl;
                     tw.IsExpanded = true;
                     tw.IsEnabled = false;
+                    tw.Cursor = System.Windows.Input.Cursors.Arrow;
                     return true;
                 default:
                     Console.Error.WriteLine("Unknown type of node");

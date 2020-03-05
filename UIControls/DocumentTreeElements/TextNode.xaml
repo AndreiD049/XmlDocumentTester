@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal">
         <Label VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Style="{StaticResource NodeCursor}">
                 <TextBlock Text="#"/>
                 <TextBlock Text="{Binding InnerText, FallbackValue='Node'}" Margin="10 0 10 0"/>
             </StackPanel>

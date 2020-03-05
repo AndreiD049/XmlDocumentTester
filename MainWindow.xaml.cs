@@ -1,22 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
-using XmlTesterPresentation;
-using XmlTesterPresentation.src;
+﻿using System.Windows;
 using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules;
+using XmlTesterPresentation.src;
 using XmlTesterPresentation.UIControls.Navigation;
 
 namespace XmlTesterPresentation
@@ -31,7 +15,7 @@ namespace XmlTesterPresentation
         public MainWindow()
         {
             InitializeComponent();
-            IApplication app = new XMLApplication(@"C:\Users\Андрей\source\repos\XmlDocumentTester\data\");
+            IApplication app = new XMLApplication();
             XmlDocLoader.LoadXmlDocuments(app);
             NavModel = new NavigationModel(this);
             NavigationToolbar.Set_NavModel(NavModel);

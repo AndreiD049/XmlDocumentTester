@@ -17,12 +17,21 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Margin="10 20 10 20">
+            <TextBlock FontWeight="Bold" FontFamily="Roboto Black" HorizontalAlignment="Center" FontSize="24">Documents</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">General categories that hold your XML sample file.</TextBlock>
+            <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">Each Document can contain several Test Cases, defining desired behaviour.</TextBlock>
+        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
             <StackPanel Orientation="Vertical">
                 <ItemsControl x:Name="docViewer" Grid.Column="0" HorizontalAlignment="Stretch" Style="{StaticResource NoInfoPlaceholder}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
+                            <Grid Style="{StaticResource FESmallText}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="70"/>
@@ -55,7 +64,7 @@
                 <Button Content="Add New" Style="{StaticResource RoundButtonTemplate}" Width="77" Height="30" Margin="0 20 0 20" Click="NewDoc_Clicked"/>
             </StackPanel>
         </ScrollViewer>
-        <Expander x:Name="newFileExpander" IsEnabled="False" IsExpanded="False" Grid.Column="1" ExpandDirection="Left" Collapsed="NewFile_Collapsed">
+        <Expander x:Name="newFileExpander" IsEnabled="False" IsExpanded="False" Grid.Column="1" Grid.RowSpan="2" ExpandDirection="Left" Collapsed="NewFile_Collapsed">
 
         </Expander>
     </Grid>

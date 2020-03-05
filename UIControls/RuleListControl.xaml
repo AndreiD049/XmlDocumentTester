@@ -10,7 +10,7 @@
                 <ListView x:Name="ruleViewer" Style="{StaticResource NoInfoPlaceholder}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="5">
+                            <StackPanel Orientation="Horizontal" Margin="5" Style="{StaticResource FESmallText}">
                                 <TextBlock Text="{Binding RuleType}"/>
                                 <TextBlock Text=" - "/>
                                 <TextBlock Text="{Binding Path}"/>
