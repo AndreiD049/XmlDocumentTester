@@ -22,7 +22,7 @@
             <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">An example would be a case with 1 Product, 2 Products, Multiple Batches etc...</TextBlock>
             <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">After 'Generate' button is pressed, transformed XML file will be saved on the specified location.</TextBlock>
         </StackPanel>
-        <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
                 <ItemsControl x:Name="caseViewer" Style="{StaticResource NoInfoPlaceholder}">
                     <ItemsControl.ItemTemplate>

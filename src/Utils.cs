@@ -79,6 +79,14 @@ namespace XmlTesterPresentation.src
             return result;
         }
 
+        public static List<IXMLTransformRule> FlattenTransformRules(Dictionary<string, List<IXMLTransformRule>> dict)
+        {
+            List<IXMLTransformRule> result = new List<IXMLTransformRule>();
+            foreach (List<IXMLTransformRule> rules in dict.Values)
+                result.AddRange(rules);
+            return result;
+        }
+
         public static string GetNewDocName()
         {
             return $@"{Guid.NewGuid()}.xml";

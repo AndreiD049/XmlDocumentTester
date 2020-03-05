@@ -15,7 +15,7 @@ namespace XmlTesterPresentation
         public MainWindow()
         {
             InitializeComponent();
-            IApplication app = new XMLApplication();
+            IApplication app = new XMLApplication(@"C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\");
             XmlDocLoader.LoadXmlDocuments(app);
             NavModel = new NavigationModel(this);
             NavigationToolbar.Set_NavModel(NavModel);

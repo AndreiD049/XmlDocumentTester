@@ -4,6 +4,7 @@ using XmlTesterPresentation.Interfaces;
 using XmlTesterPresentation.UIControls.DocumentTreeElements;
 using System.Windows.Controls;
 using System.Xml;
+using XmlTesterPresentation.src;
 using System.Windows;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -21,7 +22,7 @@ namespace XmlTesterPresentation.ViewsModels
         {
             this.View = viewer;
             this.testCase = testCase;
-            this.Rules = new ObservableCollection<IXMLTransformRule>(this.testCase.rules.Values);
+            this.Rules = new ObservableCollection<IXMLTransformRule>(Utils.FlattenTransformRules(this.testCase.rules));
             Init();
             testCase.generate();
             ConstructTree<TreeView>(viewer.ruleTree.docTreeViewer, viewer.testCase.TransformedDocument.Root);

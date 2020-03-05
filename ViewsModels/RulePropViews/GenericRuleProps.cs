@@ -25,26 +25,28 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
                 View.ViewModel.CloseProps();
                 return;
             }
-            bool added = View.ViewModel.testCase.AddRule(Copy.Path, Copy);
-            if (!added)
-            {
-                if (Rule.Parent == null)
-                {
-                    MessageBox.Show("Rule was not added. A rule with this path already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    if (MessageBox.Show("Are you sure to modify?", "Modify Rule", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                    {
-                        Copy.Parent = Rule.Parent;
-                        View.ViewModel.testCase.rules[Rule.Path] = Copy;
-                        int obsIndex = View.ViewModel.Rules.IndexOf(Rule);
-                        View.ViewModel.Rules[obsIndex] = Copy;
-                    }
-                }
-            }
-            else
-            {
+            // TODO - Delete below comments
+            //bool added = 
+            View.ViewModel.testCase.AddRule(Copy.Path, Copy);
+            //if (!added)
+            //{
+            //    if (Rule.Parent == null)
+            //    {
+            //        MessageBox.Show("Rule was not added. A rule with this path already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    }
+            //    else
+            //    {
+            //        if (MessageBox.Show("Are you sure to modify?", "Modify Rule", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            //        {
+            //            Copy.Parent = Rule.Parent;
+            //            View.ViewModel.testCase.rules[Rule.Path] = Copy;
+            //            int obsIndex = View.ViewModel.Rules.IndexOf(Rule);
+            //            View.ViewModel.Rules[obsIndex] = Copy;
+            //        }
+            //    }
+            //}
+            //else
+            //{
                 if (Rule.Parent == null)
                 {
                     View.ViewModel.Rules.Add(Copy);
@@ -53,16 +55,16 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
                 {
                     if (MessageBox.Show("Are you sure to modify?", "Modify Rule", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                     {
-                        View.ViewModel.testCase.RemoveRule(Rule.Path);
+                        View.ViewModel.testCase.RemoveRule(Rule.Path, Rule);
                         int obsIndex = View.ViewModel.Rules.IndexOf(Rule);
                         View.ViewModel.Rules[obsIndex] = Copy;
                     }
                     else
                     {
-                        View.ViewModel.testCase.RemoveRule(Copy.Path);
+                        View.ViewModel.testCase.RemoveRule(Copy.Path, Rule);
                     }
                 }
-            }
+            //}
             View.ViewModel.CloseProps();
             View.testCase.Document.TestSuiteSaver.SaveSuite();
         }
@@ -71,7 +73,7 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
         {
             if (MessageBox.Show("Are you sure?", "Delete Rule", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                View.ViewModel.testCase.RemoveRule(Rule.Path);
+                View.ViewModel.testCase.RemoveRule(Rule.Path, Rule);
                 View.ViewModel.Rules.Remove(Rule);
                 View.ViewModel.CloseProps();
                 View.testCase.Document.TestSuiteSaver.SaveSuite();

@@ -41,7 +41,8 @@ namespace XmlTesterPresentation.src.TransformRules
                     string fullPath = Utils.getFullPath(x);
                     if (Parent.rules.ContainsKey(fullPath))
                     {
-                        Parent.rules[fullPath].transform(x);
+                        foreach (IXMLTransformRule rule in Parent.rules[fullPath])
+                            rule.transform(x);
                     }
                 }
             }

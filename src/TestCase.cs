@@ -12,15 +12,15 @@ namespace XmlTesterPresentation.src
         {
             this.Name = Name;
             this.SaveLocation = SaveLocation;
-            rules = new Dictionary<string, IXMLTransformRule>();
+            rules = new Dictionary<string, List<IXMLTransformRule>>();
             Document = null;
         }
 
-        public TestCase(string Name, string SaveLocation, IDictionary<string, IXMLTransformRule> rules)
+        public TestCase(string Name, string SaveLocation, IDictionary<string, List<IXMLTransformRule>> rules)
         {
             this.Name = Name;
             this.SaveLocation = SaveLocation;
-            this.rules = new Dictionary<string, IXMLTransformRule>(rules);
+            this.rules = new Dictionary<string, List<IXMLTransformRule>>(rules);
             Document = null;
         }
 
@@ -28,35 +28,37 @@ namespace XmlTesterPresentation.src
         {
             this.Name = Name;
             this.SaveLocation = SaveLocation;
-            rules = new Dictionary<string, IXMLTransformRule>();
+            rules = new Dictionary<string, List<IXMLTransformRule>>();
             Document = doc;
         }
 
-        public TestCase(string Name, IXMLDocument doc, string SaveLocation, IDictionary<string, IXMLTransformRule> rules)
+        public TestCase(string Name, IXMLDocument doc, string SaveLocation, IDictionary<string, List<IXMLTransformRule>> rules)
         {
             this.Name = Name;
             this.SaveLocation = SaveLocation;
-            this.rules = new Dictionary<string, IXMLTransformRule>(rules);
+            this.rules = new Dictionary<string, List<IXMLTransformRule>>(rules);
             Document = doc;
         }
 
         public string Name { get; set; }
         public string SaveLocation { get; set; }
-        public Dictionary<string, IXMLTransformRule> rules { get; set; }
+        public Dictionary<string, List<IXMLTransformRule>> rules { get; set; }
         public IXMLDocument Document { get; set; }
         public IXMLDocument TransformedDocument { get; set; }
 
-        public bool AddRule(string key, IXMLTransformRule rule)
+        public void AddRule(string key, IXMLTransformRule rule)
         {
-            bool result = rules.TryAdd(key, rule);
-            if (result)
-                rule.Parent = this;
-            return result;
+            if (rules.ContainsKey(key))
+                rules[key].Add(rule);
+            else
+                rules[key] = new List<IXMLTransformRule>() { rule };
+            rule.Parent = this;
         }
 
-        public void RemoveRule(string key)
+        public void RemoveRule(string key, IXMLTransformRule rule)
         {
-            rules.Remove(key);
+            if (rules.ContainsKey(key))
+                rules[key].Remove(rule);
         }
 
         public void generate()
@@ -68,7 +70,9 @@ namespace XmlTesterPresentation.src
                 string fullPath = Utils.getFullPath(x);
                 if (rules.ContainsKey(fullPath))
                 {
-                    rules[fullPath].transform(x);
+                    // rules[fullPath] is the list of rules
+                    foreach (IXMLTransformRule rule in rules[fullPath])
+                        rule.transform(x);
                 }
             }
         }
@@ -86,11 +90,12 @@ namespace XmlTesterPresentation.src
             writer.WriteElementString("SaveLocation", SaveLocation);
             // Rules
             writer.WriteStartElement("Rules");
-            foreach (string rule in rules.Keys)
+            List<IXMLTransformRule> flattened_rules = Utils.FlattenTransformRules(rules);
+            foreach (IXMLTransformRule rule in flattened_rules)
             {
                 writer.WriteStartElement("Rule");
-                writer.WriteElementString("Path", rule);
-                ((IXmlWriter)rules[rule]).writeXml(writer);
+                writer.WriteElementString("Path", rule.Path);
+                ((IXmlWriter)rule).writeXml(writer);
                 writer.WriteEndElement();
             }
             writer.WriteEndElement();

@@ -9,7 +9,13 @@
 		<TestCase>
 			<Name>test</Name>
 			<SaveLocation>D:\Bridge</SaveLocation>
-			<Rules />
+			<Rules>
+				<Rule>
+					<Path>/Mapping/Order[1]/Customer@Type</Path>
+					<Type>Fixed</Type>
+					<FixedString>Kek</FixedString>
+				</Rule>
+			</Rules>
 		</TestCase>
 	</TestCases>
 </TestSuite>

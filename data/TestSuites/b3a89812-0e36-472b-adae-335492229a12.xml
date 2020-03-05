@@ -5,17 +5,5 @@
 		<Name>test - 637186517944931412.xml</Name>
 		<FullPath>C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\Documents\b3a89812-0e36-472b-adae-335492229a12.xml</FullPath>
 	</Document>
-	<TestCases>
-		<TestCase>
-			<Name>test</Name>
-			<SaveLocation>D:\Bridge</SaveLocation>
-			<Rules>
-				<Rule>
-					<Path>/Mapping/Order[3]/Customer</Path>
-					<Type>Fixed</Type>
-					<FixedString>XomApp</FixedString>
-				</Rule>
-			</Rules>
-		</TestCase>
-	</TestCases>
+	<TestCases />
 </TestSuite>
