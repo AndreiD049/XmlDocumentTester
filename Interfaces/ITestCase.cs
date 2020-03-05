@@ -27,11 +27,11 @@ namespace XmlTesterPresentation.Interfaces
         /// <summary>
         /// Hash table of Paths - Rules
         /// </summary>
-        public Dictionary<string, IXMLTransformRule> rules { get; set; }
+        public Dictionary<string, List<IXMLTransformRule>> rules { get; set; }
 
-        public bool AddRule(string key, IXMLTransformRule factory);
+        public void AddRule(string key, IXMLTransformRule factory);
 
-        public void RemoveRule(string key);
+        public void RemoveRule(string key, IXMLTransformRule rule);
 
         public void setDocument(IXMLDocument doc);
     }
