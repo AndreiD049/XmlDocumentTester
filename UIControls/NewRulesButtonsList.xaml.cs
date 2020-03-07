@@ -51,6 +51,14 @@ namespace XmlTesterPresentation.UIControls
             CollapseExpander();
         }
 
+        private void NewRandomInt_Clicked(object source, RoutedEventArgs e)
+        {
+            string path = Utils.getFullPath(((NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.Node);
+            RandomIntegerTransformRule rule = new RandomIntegerTransformRule(0, 100000, path);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
+            CollapseExpander();
+        }
+
         private void NewRepeat_Clicked(object source, RoutedEventArgs e)
         {
             string path = Utils.getFullPath(((NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.Node);

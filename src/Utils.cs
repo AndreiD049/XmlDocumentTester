@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
+using System.Text.RegularExpressions;
 using XmlTesterPresentation.Interfaces;
 
 namespace XmlTesterPresentation.src
 {
     static class Utils
     {
+        private static readonly Regex numeric_regex = new Regex("[^0-9.-]+");
         public static string getFullPath(XmlNode node)
         {
             if (node == null)
@@ -85,6 +87,11 @@ namespace XmlTesterPresentation.src
             foreach (List<IXMLTransformRule> rules in dict.Values)
                 result.AddRange(rules);
             return result;
+        }
+        
+        public static bool IsNumeric(string value)
+        {
+            return !numeric_regex.IsMatch(value);
         }
 
         public static string GetNewDocName()

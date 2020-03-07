@@ -22,6 +22,9 @@ namespace XmlTesterPresentation.ViewsModels
                 case TransformRuleTypes.Random:
                     DrawRandomRule(panel, (RandomStringTransformRule)rule, View);
                     break;
+                case TransformRuleTypes.RandomInteger:
+                    DrawRandomIntRule(panel, (RandomIntegerTransformRule)rule, View);
+                    break;
                 case TransformRuleTypes.RepeatNode:
                     DrawRepeatNodeRule(panel, (RepeatNodeTransformRule)rule, View);
                     break;
@@ -44,6 +47,12 @@ namespace XmlTesterPresentation.ViewsModels
             panel.Children.Add(drawer);
         }
 
+        private static void DrawRandomIntRule(StackPanel panel, RandomIntegerTransformRule rule, RuleViewer View)
+        {
+            RandomIntegerRuleProps drawer = new RandomIntegerRuleProps(rule, View);
+            panel.Children.Clear();
+            panel.Children.Add(drawer);
+        }
         private static void DrawRepeatNodeRule(StackPanel panel, RepeatNodeTransformRule rule, RuleViewer View)
         {
             RepeatNodeRuleProps drawer = new RepeatNodeRuleProps(rule, View);

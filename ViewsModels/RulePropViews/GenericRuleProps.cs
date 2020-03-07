@@ -18,35 +18,16 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
         public void Save()
         {
             // Check if Node is Valid
-            XmlNode node = ((NodeTreeViewItem)View.docTreeViewControl.SelectedItem).Node;
-            if (!Copy.Validator.Validate(node))
+            XmlNode node = ((NodeTreeViewItem)View.docTreeViewControl.SelectedItem)?.Node;
+            if (node != null)
             {
-                MessageBox.Show("This rule is not valid for the selected Node. Please select other node/rule.", "Invalid Node/Rule", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                View.ViewModel.CloseProps();
-                return;
-            }
-            // TODO - Delete below comments
-            //bool added = 
-            View.ViewModel.testCase.AddRule(Copy.Path, Copy);
-            //if (!added)
-            //{
-            //    if (Rule.Parent == null)
-            //    {
-            //        MessageBox.Show("Rule was not added. A rule with this path already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //    else
-            //    {
-            //        if (MessageBox.Show("Are you sure to modify?", "Modify Rule", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-            //        {
-            //            Copy.Parent = Rule.Parent;
-            //            View.ViewModel.testCase.rules[Rule.Path] = Copy;
-            //            int obsIndex = View.ViewModel.Rules.IndexOf(Rule);
-            //            View.ViewModel.Rules[obsIndex] = Copy;
-            //        }
-            //    }
-            //}
-            //else
-            //{
+                if (!Copy.Validator.Validate(node))
+                {
+                    MessageBox.Show("This rule is not valid for the selected Node. Please select other node/rule.", "Invalid Node/Rule", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    View.ViewModel.CloseProps();
+                    return;
+                }
+                View.ViewModel.testCase.AddRule(Copy.Path, Copy);
                 if (Rule.Parent == null)
                 {
                     View.ViewModel.Rules.Add(Copy);
@@ -64,7 +45,7 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
                         View.ViewModel.testCase.RemoveRule(Copy.Path, Rule);
                     }
                 }
-            //}
+            }
             View.ViewModel.CloseProps();
             View.testCase.Document.TestSuiteSaver.SaveSuite();
         }

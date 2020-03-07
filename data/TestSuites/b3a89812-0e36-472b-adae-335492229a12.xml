@@ -5,5 +5,25 @@
 		<Name>test - 637186517944931412.xml</Name>
 		<FullPath>C:\Users\я\source\repos\XMLDocumentGenerator\XMLDocumentGenerator\data\Documents\b3a89812-0e36-472b-adae-335492229a12.xml</FullPath>
 	</Document>
-	<TestCases />
+	<TestCases>
+		<TestCase>
+			<Name>Sabic - 1P1B - Packed</Name>
+			<SaveLocation>D:\Bridge</SaveLocation>
+			<Rules>
+				<Rule>
+					<Path>/Mapping/Order[1]/CustomerReference1</Path>
+					<Type>Random</Type>
+					<Length>7</Length>
+					<AllowedChars>0123456789</AllowedChars>
+					<Prefix>309</Prefix>
+				</Rule>
+				<Rule>
+					<Path>/Mapping/Order[1]/CustomerReference3</Path>
+					<Type>RandomInteger</Type>
+					<Min>10</Min>
+					<Max>20</Max>
+				</Rule>
+			</Rules>
+		</TestCase>
+	</TestCases>
 </TestSuite>

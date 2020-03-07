@@ -16,6 +16,8 @@ namespace XmlTesterPresentation.src.TransformRules
                     return new FixedTransformRuleFactory().createRule(t, node);
                 case TransformRuleTypes.Random:
                     return new RandomTransformRuleFactory().createRule(t, node);
+                case TransformRuleTypes.RandomInteger:
+                    return new RandomIntegerTransformRuleFactory().createRule(t, node);
                 case TransformRuleTypes.RepeatNode:
                     return new RepeatNodeTransformRuleFactory().createRule(t, node);
                 default:

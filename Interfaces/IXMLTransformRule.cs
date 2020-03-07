@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 
-public enum TransformRuleTypes { Fixed, Random, RepeatNode }
+public enum TransformRuleTypes { Fixed, Random, RepeatNode, RandomInteger }
 
 namespace XmlTesterPresentation.Interfaces
 {
