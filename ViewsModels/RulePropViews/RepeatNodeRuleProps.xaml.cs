@@ -24,18 +24,25 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
         {
             InitializeComponent();
             Rule = rule;
-            Copy = (IXMLTransformRule)rule.Clone(); 
+            Copy = (IXMLTransformRule)rule.Clone();
             this.View = View;
             this.View.Props = this;
             this.DataContext = Copy;
         }
 
-        public TextBox xPath 
+        public void Update()
         {
-            get
+            TreeView tree = View.docTreeViewControl;
+            if (tree.SelectedItem != null)
             {
-                return this.Path;
+                NodeTreeViewItem selected_item = tree.SelectedItem as NodeTreeViewItem;
+                this.Path.Text = selected_item.FullPath;
             }
+        }
+        public new void Duplicate_Clicked(object sender, RoutedEventArgs e)
+        {
+            Path.Text = "";
+            base.Duplicate_Clicked(sender, e);
         }
     }
 }

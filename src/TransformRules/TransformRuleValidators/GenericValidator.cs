@@ -13,7 +13,7 @@ namespace XmlTesterPresentation.src.TransformRules.TransformRuleValidators
         /// </summary>
         /// <param name="rule"></param>
         /// <returns></returns>
-        public bool Validate(XmlNode rule)
+        public bool Validate(XmlNode node)
         {
             return true;
         }

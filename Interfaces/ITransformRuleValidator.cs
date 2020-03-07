@@ -6,6 +6,6 @@ namespace XmlTesterPresentation.Interfaces
 {
     public interface ITransformRuleValidator
     {
-        public bool Validate(XmlNode rule);
+        public bool Validate(XmlNode node=null);
     }
 }

@@ -54,6 +54,19 @@ namespace XmlTesterPresentation.src
             return path;
         }
 
+        /// <summary>
+        /// Returns the number closest to n, that is divisible by m
+        /// </summary>
+        public static int closestNumber(int n, int m)
+        {
+            int q = n / m;
+            int n1 = m * q;
+            int n2 = (n * m) > 0 ? (m * (q + 1)) : (m * (q - 1));
+            if (Math.Abs(n - n1) < Math.Abs(n - n2))
+                return n1;
+            return n2;
+        }
+
         public static IEnumerable<XmlNode> getAllNodesEnumerable(XmlNode root)
         {
             List<XmlNode> result = new List<XmlNode>();

@@ -17,7 +17,7 @@ namespace XmlTesterPresentation.ViewsModels
         public RuleViewer View;
         public ITestCase testCase { get; set; }
         public ObservableCollection<IXMLTransformRule> Rules { get; set; }
-        //public Dictionary<string, IXMLTransformRule> rules { get; set; }
+        public Dictionary<string, NodeTreeViewItem> TreeNodesMap { get; set; }
         public RuleViewModel(RuleViewer viewer, ITestCase testCase)
         {
             this.View = viewer;
@@ -25,7 +25,9 @@ namespace XmlTesterPresentation.ViewsModels
             this.Rules = new ObservableCollection<IXMLTransformRule>(Utils.FlattenTransformRules(this.testCase.rules));
             Init();
             testCase.generate();
+            TreeNodesMap = new Dictionary<string, NodeTreeViewItem>();
             ConstructTree<TreeView>(viewer.ruleTree.docTreeViewer, viewer.testCase.TransformedDocument.Root);
+            UpdateTreeNodesMap();
         }
 
         private void Init()
@@ -56,6 +58,27 @@ namespace XmlTesterPresentation.ViewsModels
             foreach (XmlNode node in currentNode.ChildNodes)
             {
                 ConstructTree<NodeTreeViewItem>(tw, node);
+            }
+        }
+
+        private void UpdateTreeNodesMap()
+        {
+            // Initialize the stack where we'll put the nodes and their childs
+            Stack<NodeTreeViewItem> stack = new Stack<NodeTreeViewItem>();
+            // add the top level children to the stack
+            foreach (NodeTreeViewItem node in View.docTreeViewControl.Items)
+                stack.Push(node);
+            // add the items and their children to the @TreeNodesMap until the stack is not empty
+            while (stack.Count > 0)
+            {
+                NodeTreeViewItem current_item = stack.Pop();
+                // Try add the current node the hash table
+                if (current_item.FullPath != null)
+                    TreeNodesMap[current_item.FullPath] = current_item;
+                foreach (NodeTreeViewItem child in current_item.Items)
+                {
+                    stack.Push(child);
+                }
             }
         }
 
@@ -104,6 +127,7 @@ namespace XmlTesterPresentation.ViewsModels
                 testCase.generate();
                 ClearTree(View.ruleTree.docTreeViewer);
                 ConstructTree<TreeView>(View.ruleTree.docTreeViewer, testCase.TransformedDocument.Root);
+                UpdateTreeNodesMap();
             }
         }
 

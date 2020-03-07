@@ -13,6 +13,21 @@
 				<Rule>
 					<Path>/catalog/product@description</Path>
 					<Type>Fixed</Type>
+					<FixedString>Specific</FixedString>
+				</Rule>
+				<Rule>
+					<Path>/catalog/product/catalog_item@gender[1]</Path>
+					<Type>Fixed</Type>
+					<FixedString>Other</FixedString>
+				</Rule>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/size@description[1]</Path>
+					<Type>Fixed</Type>
+					<FixedString>Other</FixedString>
+				</Rule>
+				<Rule>
+					<Path>/catalog/product/catalog_item[1]/size[1]/color_swatch@image[1]</Path>
+					<Type>Fixed</Type>
 					<FixedString>Other</FixedString>
 				</Rule>
 			</Rules>

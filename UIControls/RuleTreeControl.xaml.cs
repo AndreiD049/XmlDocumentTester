@@ -41,7 +41,8 @@ namespace XmlTesterPresentation.UIControls
             NodeTreeViewItem node = tree.SelectedItem as NodeTreeViewItem;
             if (View.Props != null)
             {
-                View.Props.xPath.Text = Utils.getFullPath(node.Node);
+                //View.Props.xPath.Text = node.FullPath;
+                View.Props.Update();
             }
         }
     }

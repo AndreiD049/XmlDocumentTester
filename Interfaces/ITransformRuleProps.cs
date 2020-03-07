@@ -8,7 +8,9 @@ namespace XmlTesterPresentation.Interfaces
 {
     public interface ITransformRuleProps
     {
-        public TextBox xPath { get; }
+        public IXMLTransformRule Rule { get; set; }
+        public IXMLTransformRule Copy { get; set; }
+        public void Update();
         public void Save();
     }
 }

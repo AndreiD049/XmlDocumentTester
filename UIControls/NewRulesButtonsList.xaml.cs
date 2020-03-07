@@ -66,5 +66,28 @@ namespace XmlTesterPresentation.UIControls
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
         }
+        private void NewIncrement_Clicked(object source, RoutedEventArgs e)
+        {
+            NodeTreeViewItem item = (NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem;
+            string path = Utils.getFullPath(item?.Node);
+            string current_value = "00001";
+            if (item != null)
+                current_value = item.Node.InnerText;
+            IncrementStringTransformRule rule = new IncrementStringTransformRule(current_value, path);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
+            CollapseExpander();
+        }
+
+        private void NewSequence_Clicked(object source, RoutedEventArgs e)
+        {
+            NodeTreeViewItem item = (NodeTreeViewItem)View.ruleTree.docTreeViewer.SelectedItem;
+            string path = Utils.getFullPath(item?.Node);
+            string current_value = "Value";
+            if (item != null)
+                current_value = item.Node.InnerText;
+            SequenceTransformRule rule = new SequenceTransformRule(new List<string>() { current_value }, path, 0);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
+            CollapseExpander();
+        }
     }
 }

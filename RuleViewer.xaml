@@ -24,7 +24,7 @@
             <TextBlock FontFamily="Roboto Thin" FontSize="14" HorizontalAlignment="Center" Foreground="SlateGray">Note: Each Node can have only 1 rule.</TextBlock>
         </StackPanel>
         <uc:RuleTreeControl x:Name="ruleTree" Grid.Row="1"/>
-        <ScrollViewer Grid.Column="1" Grid.Row="1">
+        <ScrollViewer Grid.Column="1" Grid.Row="1" PreviewMouseWheel="ListViewScrollViewer_PreviewMouseWheel">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" MinHeight="150"/>

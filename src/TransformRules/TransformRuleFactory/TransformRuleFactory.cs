@@ -20,6 +20,10 @@ namespace XmlTesterPresentation.src.TransformRules
                     return new RandomIntegerTransformRuleFactory().createRule(t, node);
                 case TransformRuleTypes.RepeatNode:
                     return new RepeatNodeTransformRuleFactory().createRule(t, node);
+                case TransformRuleTypes.IncrementString:
+                    return new IncrementStringTransformRuleFactory().createRule(t, node);
+                case TransformRuleTypes.SequenceString:
+                    return new SequenceStringTransformRuleFactory().createRule(t, node);
                 default:
                     throw new Exception("Not valid Transform rule!");
             }

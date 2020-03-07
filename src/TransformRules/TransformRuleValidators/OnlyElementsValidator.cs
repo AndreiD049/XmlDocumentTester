@@ -7,9 +7,9 @@ namespace XmlTesterPresentation.src.TransformRules.TransformRuleValidators
 {
     class OnlyElementsValidator : ITransformRuleValidator
     {
-        public bool Validate(XmlNode rule)
+        public bool Validate(XmlNode node)
         {
-            return rule.NodeType == XmlNodeType.Element;
+            return node.NodeType == XmlNodeType.Element;
         }
     }
 }

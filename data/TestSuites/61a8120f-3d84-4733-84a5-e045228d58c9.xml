@@ -16,6 +16,12 @@
 					<FixedString>Animal's</FixedString>
 				</Rule>
 				<Rule>
+					<Path>/catalog/product/catalog_item@gender[1]</Path>
+					<Type>RandomInteger</Type>
+					<Min>30</Min>
+					<Max>60</Max>
+				</Rule>
+				<Rule>
 					<Path>/catalog/product/catalog_item[1]/price</Path>
 					<Type>Random</Type>
 					<Length>5</Length>
@@ -33,9 +39,9 @@
 					<Times>1</Times>
 				</Rule>
 				<Rule>
-					<Path>/catalog/product/catalog_item[1]/size@description[3]</Path>
+					<Path>/catalog/product/catalog_item[1]/size[3]/color_swatch[1]</Path>
 					<Type>Fixed</Type>
-					<FixedString>Oversize</FixedString>
+					<FixedString>Blue</FixedString>
 				</Rule>
 			</Rules>
 		</TestCase>

@@ -28,6 +28,12 @@ namespace XmlTesterPresentation.ViewsModels
                 case TransformRuleTypes.RepeatNode:
                     DrawRepeatNodeRule(panel, (RepeatNodeTransformRule)rule, View);
                     break;
+                case TransformRuleTypes.IncrementString:
+                    DrawIncrementRule(panel, (IncrementStringTransformRule)rule, View);
+                    break;
+                case TransformRuleTypes.SequenceString:
+                    DrawSequenceRule(panel, (SequenceTransformRule)rule, View);
+                    break;
                 default:
                     break;
             }
@@ -56,6 +62,23 @@ namespace XmlTesterPresentation.ViewsModels
         private static void DrawRepeatNodeRule(StackPanel panel, RepeatNodeTransformRule rule, RuleViewer View)
         {
             RepeatNodeRuleProps drawer = new RepeatNodeRuleProps(rule, View);
+            panel.Children.Clear();
+            panel.Children.Add(drawer);
+        }
+
+        private static void DrawIncrementRule(StackPanel panel, IncrementStringTransformRule rule, RuleViewer View)
+        {
+            NodeTreeViewItem selected_item = View.docTreeViewControl.SelectedItem as NodeTreeViewItem;
+            if (selected_item != null)
+                rule.CurrentValue = selected_item.Node.InnerText;
+            IncrementStringRuleProps drawer = new IncrementStringRuleProps(rule, View);
+            panel.Children.Clear();
+            panel.Children.Add(drawer);
+        }
+
+        private static void DrawSequenceRule(StackPanel panel, SequenceTransformRule rule, RuleViewer View)
+        {
+            SequenceStringRuleProps drawer = new SequenceStringRuleProps(rule, View);
             panel.Children.Clear();
             panel.Children.Add(drawer);
         }

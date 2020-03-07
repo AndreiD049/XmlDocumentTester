@@ -64,7 +64,6 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
         private void Duplicate()
         {
             Rule = (IXMLTransformRule)Copy.Clone();
-            View.Props.xPath.Text = "";
         }
 
         protected void Cancel_Clicked(object source, RoutedEventArgs e)

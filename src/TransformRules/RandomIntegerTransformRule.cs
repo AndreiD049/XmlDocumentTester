@@ -15,25 +15,33 @@ namespace XmlTesterPresentation.src.TransformRules
         public string Path { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
+        public int Divisor { get; set; }
         public static Random rnd = new Random();
 
-        public RandomIntegerTransformRule(int Min, int Max, string Path)
+        public RandomIntegerTransformRule(int Min, int Max, string Path, int Divisor = 0)
         {
             this.Min = Min;
             this.Max = Max;
             this.Path = Path;
-            Validator = new GenericValidator();
+            this.Divisor = Divisor;
+            Validator = new RandomIntegerValidator(this);
         }
 
         public object Clone()
         {
-            return new RandomIntegerTransformRule(Min, Max, Path);
+            return new RandomIntegerTransformRule(Min, Max, Path, Divisor);
         }
 
         public void transform(XmlNode node)
         {
             if (Validator.Validate(node))
-                node.InnerText = rnd.Next(Min, Max).ToString();
+            {
+                int n = rnd.Next(Min, Max);
+                if (Divisor != 0)
+                    n = Utils.closestNumber(n, Divisor);
+                node.InnerText = n.ToString();
+
+            }
         }
 
         public void writeXml(XmlWriter writer)

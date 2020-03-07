@@ -1,20 +1,20 @@
 ﻿using System.Windows.Controls;
+using System.Windows;
 using XmlTesterPresentation.Interfaces;
 using XmlTesterPresentation.src.TransformRules;
-using System.Windows;
 
 namespace XmlTesterPresentation.ViewsModels.RulePropViews
 {
     /// <summary>
-    /// Interaction logic for RandomStringRuleProps.xaml
+    /// Interaction logic for IncrementStringRuleProps.xaml
     /// </summary>
-    public partial class RandomStringRuleProps : GenericRuleProps, ITransformRuleProps 
+    public partial class IncrementStringRuleProps : GenericRuleProps, ITransformRuleProps 
     {
-        public RandomStringRuleProps(RandomStringTransformRule rule, RuleViewer View)
+        public IncrementStringRuleProps(IncrementStringTransformRule rule, RuleViewer View)
         {
             InitializeComponent();
             Rule = rule;
-            Copy = (IXMLTransformRule)rule.Clone();
+            Copy = (IXMLTransformRule)Rule.Clone();
             this.View = View;
             this.View.Props = this;
             this.DataContext = Copy;
@@ -22,11 +22,9 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
         public void Update()
         {
             TreeView tree = View.docTreeViewControl;
-            if (tree.SelectedItem != null)
-            {
-                NodeTreeViewItem selected_item = tree.SelectedItem as NodeTreeViewItem;
-                this.Path.Text = selected_item.FullPath;
-            }
+            NodeTreeViewItem selected_item = tree.SelectedItem as NodeTreeViewItem;
+            this.Path.Text = selected_item.FullPath;
+            this.CurVal.Text = selected_item.Node.InnerText;
         }
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)
         {

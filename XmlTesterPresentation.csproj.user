@@ -31,10 +31,16 @@
     <Compile Update="UIControls\RuleTreeControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsModels\RulePropViews\IncrementStringRuleProps.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ViewsModels\RulePropViews\RandomIntegerRuleProps.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ViewsModels\RulePropViews\SequenceStringRuleProps.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -66,10 +72,16 @@
     <Page Update="UIControls\RuleTreeControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ViewsModels\RulePropViews\IncrementStringRuleProps.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ViewsModels\RulePropViews\RandomIntegerRuleProps.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsModels\RulePropViews\SequenceStringRuleProps.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -31,8 +31,8 @@ namespace XmlTesterPresentation
             InitializeComponent();
             this.testCase = testCase;
             MainWin = mainWin;
-            ViewModel = new RuleViewModel(this, testCase);
             docTreeViewControl = ruleTree.docTreeViewer;
+            ViewModel = new RuleViewModel(this, testCase);
             ruleList.ViewModel = ViewModel;
             newRuleButtonList.View = this;
             newRuleButtonList.ViewModel = ViewModel;
@@ -45,5 +45,12 @@ namespace XmlTesterPresentation
             newRulesList.IsEnabled = true;
             newRulesList.IsExpanded = true;
         }
+        private void ListViewScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
+        }
+
     }
 }

@@ -82,12 +82,18 @@ namespace XmlTesterPresentation
             Button btn = (Button)source;
             ITestCase testCase = btn.DataContext as ITestCase;
             testCase.generate();
+            testCase.Document.TestSuiteSaver.SaveSuite();
             testCase.SaveOnLocation();
         }
 
         private void GenerateAll_Clicked(object source, RoutedEventArgs e)
         {
-
+            foreach(ITestCase tc in TestCases)
+            {
+                tc.generate();
+                tc.Document.TestSuiteSaver.SaveSuite();
+                tc.SaveOnLocation();
+            }
         }
     }
 }

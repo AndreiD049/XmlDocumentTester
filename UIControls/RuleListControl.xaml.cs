@@ -32,5 +32,17 @@ namespace XmlTesterPresentation.UIControls
             IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
             ViewModel.DrawProps(rule);
         }
+
+        private void SelectNodeTreeViewItem(object source, RoutedEventArgs e)
+        {
+            ListViewItem item = (ListViewItem)source;
+            IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
+            NodeTreeViewItem tree_node = ViewModel.TreeNodesMap[rule.Path];
+            if (tree_node != null)
+            {
+                tree_node.IsSelected = true;
+                tree_node.BringIntoView();
+            }
+        }
     }
 }

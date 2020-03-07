@@ -16,7 +16,7 @@ namespace XmlTesterPresentation.src.TransformRules
                 Console.Error.WriteLine("Min tag missing in Random rule. Skipping");
                 return null;
             }
-            XmlNode max = node.SelectSingleNode("Min");
+            XmlNode max = node.SelectSingleNode("Max");
             if (max == null)
             {
                 Console.Error.WriteLine("Max tag missing in Random rule. Skipping");
@@ -28,8 +28,16 @@ namespace XmlTesterPresentation.src.TransformRules
                 Console.Error.WriteLine($"No path specified");
                 return null;
             }
-            if (Int32.TryParse(min.InnerText, out int min_int) && Int32.TryParse(max.InnerText, out int max_int))
-                return new RandomIntegerTransformRule(min_int, max_int, path.InnerText);
+            XmlNode div = node.SelectSingleNode("Divisor");
+            if (div == null)
+            {
+                Console.Error.WriteLine("Divisor is missing. Skipping.");
+                return null;
+            }
+            if (Int32.TryParse(min.InnerText, out int min_int) && 
+                Int32.TryParse(max.InnerText, out int max_int) && 
+                Int32.TryParse(div.InnerText, out int div_int))
+                return new RandomIntegerTransformRule(min_int, max_int, path.InnerText, div_int);
             else
                 return null;
         }

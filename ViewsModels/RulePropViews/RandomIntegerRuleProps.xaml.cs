@@ -30,73 +30,8 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
             Copy = (IXMLTransformRule)rule.Clone();
             this.View = View;
             this.View.Props = this;
-            CopyPath = ((RandomIntegerTransformRule)Copy).Path;
-            Min = ((RandomIntegerTransformRule)Copy).Min;
-            Max = ((RandomIntegerTransformRule)Copy).Max;
-            this.DataContext = this;
+            this.DataContext = Copy;
         }
-        // TODO: rework this piece
-        public int Min
-        {
-            get
-            {
-                return ((RandomIntegerTransformRule)Copy).Min;
-            }
-            set
-            {
-                if (value > Max)
-                {
-                    ((RandomIntegerTransformRule)Copy).Min = Max;
-                    Max = value;
-                    OnPropertyChanged("Max");
-                }
-                else
-                {
-                    ((RandomIntegerTransformRule)Copy).Min = value;
-                }
-            }
-        }
-        public int Max
-        {
-            get
-            {
-                return ((RandomIntegerTransformRule)Copy).Max;
-            }
-            set
-            {
-                if (value < Min)
-                {
-                    ((RandomIntegerTransformRule)Copy).Max = Min;
-                    Min = value;
-                    OnPropertyChanged("Min");
-                }
-                else
-                {
-                    ((RandomIntegerTransformRule)Copy).Max = value;
-                }
-            }
-        }
-
-        public string CopyPath
-        {
-            get
-            {
-                return Copy.Path;
-            }
-            set
-            {
-                Copy.Path = value;
-            }
-        }
-
-        public TextBox xPath 
-        {
-            get
-            {
-                return this.Path;
-            }
-        }
-
         private void Preview_Input(object source, RoutedEventArgs e)
         {
             string text = (source as TextBox).Text;
@@ -108,6 +43,44 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        private new void Save_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (!Copy.Validator.Validate())
+            {
+                MessageBoxResult answer = MessageBox.Show("Cannot Save rule. Min is greater than Max. Do you want to swap them?",
+                                                          "Warning",
+                                                          MessageBoxButton.YesNo,
+                                                          MessageBoxImage.Warning);
+                if (answer == MessageBoxResult.Yes)
+                {
+                    RandomIntegerTransformRule rule = Copy as RandomIntegerTransformRule;
+                    int temp = rule.Min;
+                    rule.Min = rule.Max;
+                    rule.Max = temp;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            base.Save_Clicked(sender, e);
+        }
+        public void Update()
+        {
+            TreeView tree = View.docTreeViewControl;
+            if (tree.SelectedItem != null)
+            {
+                NodeTreeViewItem selected_item = tree.SelectedItem as NodeTreeViewItem;
+                this.Path.Text = selected_item.FullPath;
+            }
+        }
+
+        public new void Duplicate_Clicked(object sender, RoutedEventArgs e)
+        {
+            Path.Text = "";
+            base.Duplicate_Clicked(sender, e);
         }
     }
 }

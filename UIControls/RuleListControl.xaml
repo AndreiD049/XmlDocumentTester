@@ -19,6 +19,7 @@
                     </ListView.ItemTemplate>
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
+                            <EventSetter Event="PreviewMouseDown" Handler="SelectNodeTreeViewItem"/>
                             <EventSetter Event="PreviewMouseDown" Handler="UpdateRuleProps"/>
                         </Style>
                     </ListView.ItemContainerStyle>
