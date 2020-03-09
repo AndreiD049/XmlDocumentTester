@@ -2,6 +2,8 @@
 using System.Windows;
 using XmlTester.Interfaces;
 using XmlTester.src.TransformRules;
+using XmlTester.src;
+using System.Xml;
 
 namespace XmlTester.ViewsModels.RulePropViews
 {
@@ -22,9 +24,9 @@ namespace XmlTester.ViewsModels.RulePropViews
         public void Update()
         {
             TreeView tree = View.docTreeViewControl;
-            NodeTreeViewItem selected_item = tree.SelectedItem as NodeTreeViewItem;
-            this.Path.Text = selected_item.FullPath;
-            this.CurVal.Text = selected_item.Node.InnerText;
+            TreeViewItem selected_item = tree.SelectedItem as TreeViewItem;
+            //this.Path.Text = Utils.getFullPath(selected_item.DataCvontext as XmlNode);
+            //this.CurVal.Text = selected_item.Node.InnerText;
         }
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)
         {

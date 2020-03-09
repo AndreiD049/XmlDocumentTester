@@ -28,6 +28,11 @@ namespace XmlTester.UIControls
             InitializeComponent();
         }
 
+        public void setItemsSrource()
+        {
+            docTreeViewer.ItemsSource = View.testCase.Document.Root;
+        }
+
         private void ListViewScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             ScrollViewer scv = (ScrollViewer)sender;
@@ -38,7 +43,7 @@ namespace XmlTester.UIControls
         private void Selected_Changed(object source, RoutedEventArgs e)
         {
             TreeView tree = source as TreeView;
-            NodeTreeViewItem node = tree.SelectedItem as NodeTreeViewItem;
+            TreeViewItem node = tree.SelectedItem as TreeViewItem;
             if (View.Props != null)
             {
                 //View.Props.xPath.Text = node.FullPath;

@@ -33,11 +33,11 @@ namespace XmlTester.UIControls
             ViewModel.DrawProps(rule);
         }
 
-        private void SelectNodeTreeViewItem(object source, RoutedEventArgs e)
+        private void SelectTreeViewItem(object source, RoutedEventArgs e)
         {
             ListViewItem item = (ListViewItem)source;
             IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
-            NodeTreeViewItem tree_node;
+            TreeViewItem tree_node;
             ViewModel.TreeNodesMap.TryGetValue(rule.Path, out tree_node);
             if (tree_node != null)
             {

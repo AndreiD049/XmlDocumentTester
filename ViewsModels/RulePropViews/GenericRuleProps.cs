@@ -18,7 +18,7 @@ namespace XmlTester.ViewsModels.RulePropViews
         public void Save()
         {
             // Check if Node is Valid
-            XmlNode node = ((NodeTreeViewItem)View.docTreeViewControl.SelectedItem)?.Node;
+            XmlNode node = null; // TODO change 
             if (node != null)
             {
                 if (!Copy.Validator.Validate(node))

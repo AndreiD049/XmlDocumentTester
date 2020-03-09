@@ -36,8 +36,8 @@ namespace XmlTester.ViewsModels.RulePropViews
             TreeView tree = View.docTreeViewControl;
             if (tree.SelectedItem != null)
             {
-                NodeTreeViewItem selected_item = tree.SelectedItem as NodeTreeViewItem;
-                this.Path.Text = selected_item.FullPath;
+                TreeViewItem selected_item = tree.SelectedItem as TreeViewItem;
+                this.Path.Text = ""; // TODO Update
             }
         }
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)

@@ -39,6 +39,7 @@ namespace XmlTester
             newRuleButtonList.ViewModel = ViewModel;
             ruleTree.View = this;
             ruleTree.ViewModel = ViewModel;
+            ruleTree.setItemsSrource();
         }
 
         private void AddNew_Clicked(object source, RoutedEventArgs e)
@@ -55,7 +56,7 @@ namespace XmlTester
         public void Search(string value)
         {
             string l_value = value.ToLower();
-            foreach(NodeTreeViewItem g in Utils.FindVisualChildren<NodeTreeViewItem>(ruleTree))
+            foreach(TreeViewItem g in Utils.FindVisualChildren<TreeViewItem>(ruleTree))
             {
                 foreach(TextBlock t in Utils.FindVisualChildren<TextBlock>(g))
                 {

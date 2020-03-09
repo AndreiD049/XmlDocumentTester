@@ -7,15 +7,6 @@
     <Compile Update="DocPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UIControls\DocumentTreeElements\AtributeNode.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UIControls\DocumentTreeElements\ElementNode.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UIControls\DocumentTreeElements\TextNode.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UIControls\EditTestCaseControlExpander.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,15 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="DocPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UIControls\DocumentTreeElements\AtributeNode.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UIControls\DocumentTreeElements\ElementNode.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UIControls\DocumentTreeElements\TextNode.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UIControls\EditTestCaseControlExpander.xaml">

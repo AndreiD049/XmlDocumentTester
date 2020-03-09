@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows.Data;
 using XmlTester;
+using System.Xml;
 using XmlTester.Interfaces;
 using XmlTester.src.TransformRules;
 using XmlTester.ViewsModels.RulePropViews;
@@ -68,9 +69,9 @@ namespace XmlTester.ViewsModels
 
         private static void DrawIncrementRule(StackPanel panel, IncrementStringTransformRule rule, RuleViewer View)
         {
-            NodeTreeViewItem selected_item = View.docTreeViewControl.SelectedItem as NodeTreeViewItem;
+            TreeViewItem selected_item = View.docTreeViewControl.SelectedItem as TreeViewItem;
             if (selected_item != null)
-                rule.CurrentValue = selected_item.Node.InnerText;
+                rule.CurrentValue = ((XmlNode)selected_item.DataContext).InnerText;
             IncrementStringRuleProps drawer = new IncrementStringRuleProps(rule, View);
             panel.Children.Clear();
             panel.Children.Add(drawer);
