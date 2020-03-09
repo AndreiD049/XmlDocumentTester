@@ -37,7 +37,8 @@ namespace XmlTester.UIControls
         {
             ListViewItem item = (ListViewItem)source;
             IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
-            NodeTreeViewItem tree_node = ViewModel.TreeNodesMap[rule.Path];
+            NodeTreeViewItem tree_node;
+            ViewModel.TreeNodesMap.TryGetValue(rule.Path, out tree_node);
             if (tree_node != null)
             {
                 tree_node.IsSelected = true;

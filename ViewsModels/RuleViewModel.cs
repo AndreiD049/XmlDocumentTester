@@ -125,11 +125,28 @@ namespace XmlTester.ViewsModels
             if (testCase != null)
             {
                 testCase.generate();
+                string selected_item_path = ((NodeTreeViewItem) View.ruleTree.docTreeViewer.SelectedItem)?.FullPath;
                 ClearTree(View.ruleTree.docTreeViewer);
                 ConstructTree<TreeView>(View.ruleTree.docTreeViewer, testCase.TransformedDocument.Root);
                 if (View.ruleTree.docTreeViewer.Items.Count > 0)
+                {
                     ((NodeTreeViewItem)View.ruleTree.docTreeViewer.Items[0]).Loaded += UpdateSearch;
+                    ((NodeTreeViewItem)View.ruleTree.docTreeViewer.Items[0]).Loaded += (object source, RoutedEventArgs e) => { BringSelectedIntoView(selected_item_path); };
+                }
                 UpdateTreeNodesMap();
+            }
+        }
+
+        private void BringSelectedIntoView(string selected_item_path)
+        {
+            if (selected_item_path != null)
+            {
+                View.ViewModel.TreeNodesMap.TryGetValue(selected_item_path, out NodeTreeViewItem selected_node);
+                if (selected_node != null)
+                {
+                    selected_node.BringIntoView();
+                    selected_node.IsSelected = true;
+                }
             }
         }
 

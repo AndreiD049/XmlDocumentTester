@@ -100,17 +100,19 @@ namespace XmlTester
         }
         public void Search(string value)
         {
+            string l_value = value.ToLower();
             foreach(Grid g in Utils.FindVisualChildren<Grid>(caseViewer))
             {
                 foreach(TextBlock t in Utils.FindVisualChildren<TextBlock>(g))
                 {
+                    string textblock_lower = t.Text.ToLower();
                     if ((string)t.Tag == "Search")
                     {
-                        if (t.Text.IndexOf(value) < 0)
+                        if (textblock_lower.IndexOf(l_value) < 0)
                         {
                             g.Visibility = Visibility.Collapsed;
                         }
-                        if (value == string.Empty || t.Text.IndexOf(value) >= 0)
+                        if (l_value == string.Empty || textblock_lower.IndexOf(l_value) >= 0)
                         {
                             g.Visibility = Visibility.Visible;
                             break;

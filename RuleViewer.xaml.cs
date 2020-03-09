@@ -54,19 +54,22 @@ namespace XmlTester
         }
         public void Search(string value)
         {
+            string l_value = value.ToLower();
             foreach(NodeTreeViewItem g in Utils.FindVisualChildren<NodeTreeViewItem>(ruleTree))
             {
                 foreach(TextBlock t in Utils.FindVisualChildren<TextBlock>(g))
                 {
                     if ((string)t.Tag == "Search")
                     {
-                        if (t.Text.IndexOf(value) < 0)
+                        if (t.Text.ToLower().IndexOf(l_value) < 0)
                         {
                             g.Visibility = Visibility.Collapsed;
                         }
-                        if (value == string.Empty || t.Text.IndexOf(value) >= 0)
+                        if (l_value == string.Empty || t.Text.ToLower().IndexOf(l_value) >= 0)
                         {
                             g.Visibility = Visibility.Visible;
+                            if (g.IsSelected)
+                                g.BringIntoView();
                             break;
                         }
                     }

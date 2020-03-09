@@ -37,19 +37,16 @@ namespace XmlTester.src
                 // Gets the position within the parent element.
                 // However, this position is irrelevant if the element is unique under its parent:
                 XmlNodeList siblings = parentElement.SelectNodes(element.Name);
-                if (siblings != null && siblings.Count > 1) // There's more than 1 element with the same name
+                int position = 1;
+                foreach (XmlElement sibling in siblings)
                 {
-                    int position = 1;
-                    foreach (XmlElement sibling in siblings)
-                    {
-                        if (sibling == element)
-                            break;
+                    if (sibling == element)
+                        break;
 
-                        position++;
-                    }
-
-                    path = path + "[" + position + "]";
+                    position++;
                 }
+
+                path = path + "[" + position + "]";
 
                 // Climbing up to the parent elements:
                 path = parentElement.GetXPath_SequentialIteration() + path;
