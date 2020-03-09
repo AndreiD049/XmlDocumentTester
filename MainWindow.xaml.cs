@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src;
-using XmlTesterPresentation.UIControls.Navigation;
+using XmlTester.Interfaces;
+using XmlTester.src;
+using XmlTester.UIControls.Navigation;
 
-namespace XmlTesterPresentation
+namespace XmlTester
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -17,7 +17,7 @@ namespace XmlTesterPresentation
         {
             InitializeComponent();
             SetExceptionHandler();
-            IApplication app = new XMLApplication(@"C:\Users\Андрей\source\repos\XmlDocumentTester\data\");
+            IApplication app = new XMLApplication();
             XmlDocLoader.LoadXmlDocuments(app);
             NavModel = new NavigationModel(this);
             NavigationToolbar.Set_NavModel(NavModel);

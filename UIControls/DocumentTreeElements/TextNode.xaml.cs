@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation.UIControls.DocumentTreeElements
+namespace XmlTester.UIControls.DocumentTreeElements
 {
     /// <summary>
     /// Логика взаимодействия для TextNode.xaml

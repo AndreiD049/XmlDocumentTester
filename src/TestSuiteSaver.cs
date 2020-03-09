@@ -1,9 +1,9 @@
-﻿using XmlTesterPresentation.Interfaces;
+﻿using XmlTester.Interfaces;
 using System.Xml;
 using System.IO;
 using System;
 
-namespace XmlTesterPresentation.src
+namespace XmlTester.src
 {
     class TestSuiteSaver: ITestSuiteSaver
     {

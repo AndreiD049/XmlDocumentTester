@@ -1,5 +1,5 @@
 ﻿
-namespace XmlTesterPresentation.Interfaces
+namespace XmlTester.Interfaces
 {
     public interface ITestSuiteSaver
     {

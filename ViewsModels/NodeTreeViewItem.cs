@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.src;
+using XmlTester.src;
 
-namespace XmlTesterPresentation.ViewsModels
+namespace XmlTester.ViewsModels
 {
     public class NodeTreeViewItem: TreeViewItem
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
-namespace XmlTesterPresentation.src.TransformRules.TransformRuleValidators
+namespace XmlTester.src.TransformRules.TransformRuleValidators
 {
     class OnlyElementsValidator : ITransformRuleValidator
     {

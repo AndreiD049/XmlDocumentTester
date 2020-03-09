@@ -1,11 +1,11 @@
 ﻿using System.Windows.Controls;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules;
 using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 
-namespace XmlTesterPresentation.ViewsModels.RulePropViews
+namespace XmlTester.ViewsModels.RulePropViews
 {
     /// <summary>
     /// Interaction logic for SequenceStringRuleProps.xaml
@@ -102,7 +102,6 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
             }
             Update();
         }
-
         private void Index_Move_Up(object source, RoutedEventArgs e)
         {
             SequenceTransformRule rule = Copy as SequenceTransformRule;
@@ -122,26 +121,6 @@ namespace XmlTesterPresentation.ViewsModels.RulePropViews
                 indexChanged = true;
                 Update();
             }
-        }
-
-        private new void Save_Clicked(object source, RoutedEventArgs e)
-        {
-            if (indexChanged)
-            {
-                SetPrevNextValue();
-            }
-            base.Save_Clicked(source, e);
-        }
-        /// <summary>
-        /// Needed when we manually set the next item in sequence.
-        /// </summary>
-        private void SetPrevNextValue()
-        {
-            SequenceTransformRule rule = Copy as SequenceTransformRule;
-            if (rule.NextValue == 0)
-                rule.NextValue = rule.Values.Count - 1;
-            else
-                rule.NextValue -= 1;
         }
     }
 }

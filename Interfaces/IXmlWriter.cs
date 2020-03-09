@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace XmlTesterPresentation.Interfaces
+namespace XmlTester.Interfaces
 {
     public interface IXmlWriter
     {

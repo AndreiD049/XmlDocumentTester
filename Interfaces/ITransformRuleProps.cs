@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace XmlTesterPresentation.Interfaces
+namespace XmlTester.Interfaces
 {
     public interface ITransformRuleProps
     {

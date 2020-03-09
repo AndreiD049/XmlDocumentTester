@@ -1,16 +1,16 @@
-﻿<UserControl x:Class="XmlTesterPresentation.UIControls.DocumentTreeElements.TextNode"
+﻿<UserControl x:Class="XmlTester.UIControls.DocumentTreeElements.TextNode"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:XmlTesterPresentation.UIControls.DocumentTreeElements"
+             xmlns:local="clr-namespace:XmlTester.UIControls.DocumentTreeElements"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal">
         <Label VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Style="{StaticResource NodeCursor}">
                 <TextBlock Text="#"/>
-                <TextBlock Text="{Binding InnerText, FallbackValue='Node'}" Margin="10 0 10 0"/>
+                <TextBlock Tag="Search" Text="{Binding InnerText, FallbackValue='Node'}" Margin="10 0 10 0"/>
             </StackPanel>
         </Label>
     </StackPanel>

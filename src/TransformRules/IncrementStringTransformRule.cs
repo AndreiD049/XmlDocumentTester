@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Xml;
 using System.Text.RegularExpressions;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules.TransformRuleValidators;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules.TransformRuleValidators;
 
-namespace XmlTesterPresentation.src.TransformRules
+namespace XmlTester.src.TransformRules
 {
     /// <summary>
     /// Transform rule that will increment the current Node Value.
@@ -13,14 +13,13 @@ namespace XmlTesterPresentation.src.TransformRules
     /// Specific fields used:
     ///  * Current Value;
     /// </summary>
-    public class IncrementStringTransformRule : IXMLTransformRule, IXmlWriter
+    public class IncrementStringTransformRule : IXMLTransformRule, IXmlWriter, ISequentialRule
     {
         public ITestCase Parent { get; set; }
         public ITransformRuleValidator Validator { get; set; }
         public TransformRuleTypes RuleType { get; set; } = TransformRuleTypes.IncrementString;
         public string Path { get; set; }
         public string CurrentValue { get; set; }
-        public string IncrementedValue { get; set; }
 
         public static readonly Regex _regex = new Regex(@"\d+$", RegexOptions.Compiled);
 
@@ -28,7 +27,7 @@ namespace XmlTesterPresentation.src.TransformRules
         {
             CurrentValue = val;
             Path = path;
-            Validator = new IncrementStringValidator(); 
+            Validator = new IncrementStringValidator(this); 
         }
 
         public object Clone()
@@ -57,15 +56,7 @@ namespace XmlTesterPresentation.src.TransformRules
         {
             if (Validator.Validate(node))
             {
-                if (IncrementedValue != null)
-                {
-                    node.InnerText = IncrementedValue;
-                }
-                else
-                {
-                    node.InnerText = IncrementString(CurrentValue);
-                    IncrementedValue = node.InnerText;
-                }
+                node.InnerText = CurrentValue;
             }
         }
 
@@ -73,11 +64,11 @@ namespace XmlTesterPresentation.src.TransformRules
         {
             writer.WriteElementString("Type", RuleType.ToString());
             writer.WriteElementString("CurrentValue", CurrentValue);
-            if (IncrementedValue != null)
-            {
-                CurrentValue = IncrementedValue;
-                IncrementedValue = null;
-            }
+        }
+
+        public void UpdateSequencialValues()
+        {
+            CurrentValue = IncrementString(CurrentValue);
         }
     }
 }

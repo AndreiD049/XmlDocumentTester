@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
-namespace XmlTesterPresentation.ViewsModels.RulePropViews
+namespace XmlTester.ViewsModels.RulePropViews
 {
     public class GenericRuleProps : UserControl
     {

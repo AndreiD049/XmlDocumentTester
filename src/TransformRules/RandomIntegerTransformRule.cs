@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules.TransformRuleValidators;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules.TransformRuleValidators;
 
-namespace XmlTesterPresentation.src.TransformRules
+namespace XmlTester.src.TransformRules
 {
     public class RandomIntegerTransformRule : IXMLTransformRule, IXmlWriter
     {

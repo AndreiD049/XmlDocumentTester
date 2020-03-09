@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 using System.Xml;
 
-namespace XmlTesterPresentation.src
+namespace XmlTester.src
 {
     class XMLDoc:IXMLDocument, IXmlWriter
     {

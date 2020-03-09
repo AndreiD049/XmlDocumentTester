@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules;
-using XmlTesterPresentation.src;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules;
+using XmlTester.src;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace XmlTesterPresentation.ViewsModels.RulePropViews
+namespace XmlTester.ViewsModels.RulePropViews
 {
     /// <summary>
     /// Interaction logic for RandomIntegerRuleProps.xaml

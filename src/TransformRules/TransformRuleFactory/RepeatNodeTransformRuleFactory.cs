@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 using System.Xml;
 
-namespace XmlTesterPresentation.src.TransformRules
+namespace XmlTester.src.TransformRules
 {
     class RepeatNodeTransformRuleFactory: ITransformRuleFactory
     {

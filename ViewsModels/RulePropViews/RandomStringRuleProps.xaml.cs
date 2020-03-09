@@ -1,9 +1,9 @@
 ﻿using System.Windows.Controls;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules;
 using System.Windows;
 
-namespace XmlTesterPresentation.ViewsModels.RulePropViews
+namespace XmlTester.ViewsModels.RulePropViews
 {
     /// <summary>
     /// Interaction logic for RandomStringRuleProps.xaml

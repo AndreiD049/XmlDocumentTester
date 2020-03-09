@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 using System.IO;
 
-namespace XmlTesterPresentation.src
+namespace XmlTester.src
 {
     class XMLApplication : IApplication
     {

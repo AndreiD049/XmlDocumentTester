@@ -5,7 +5,7 @@ using System.Xml;
 
 public enum TransformRuleTypes { Fixed, Random, RepeatNode, RandomInteger, IncrementString, SequenceString }
 
-namespace XmlTesterPresentation.Interfaces
+namespace XmlTester.Interfaces
 {
     /// <summary>
     /// a rule to transform an XML node

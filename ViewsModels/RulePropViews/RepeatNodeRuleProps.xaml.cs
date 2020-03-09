@@ -10,10 +10,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules;
 
-namespace XmlTesterPresentation.ViewsModels.RulePropViews
+namespace XmlTester.ViewsModels.RulePropViews
 {
     /// <summary>
     /// Логика взаимодействия для RepeatNodeRuleProps.xaml

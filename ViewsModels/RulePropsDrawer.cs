@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
 using System.Windows.Data;
-using XmlTesterPresentation;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules;
-using XmlTesterPresentation.ViewsModels.RulePropViews;
+using XmlTester;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules;
+using XmlTester.ViewsModels.RulePropViews;
 
-namespace XmlTesterPresentation.ViewsModels
+namespace XmlTester.ViewsModels
 {
     static class RulePropsDrawer
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
-namespace XmlTesterPresentation.Interfaces
+namespace XmlTester.Interfaces
 {
     public interface IApplication
     {

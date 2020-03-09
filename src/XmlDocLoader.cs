@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 using System.Xml;
 
-namespace XmlTesterPresentation.src
+namespace XmlTester.src
 {
     static class XmlDocLoader
     {

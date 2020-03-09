@@ -1,8 +1,8 @@
-﻿<Application x:Class="XmlTesterPresentation.App"
+﻿<Application x:Class="XmlTester.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:XmlTesterPresentation"
-             xmlns:vm="clr-namespace:XmlTesterPresentation.ViewsModels"
+             xmlns:local="clr-namespace:XmlTester"
+             xmlns:vm="clr-namespace:XmlTester.ViewsModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="{x:Type FrameworkElement}" x:Key="FESmallText">

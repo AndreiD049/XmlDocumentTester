@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Xml;
 using System.Text;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
 
-namespace XmlTesterPresentation.src.TransformRules
+namespace XmlTester.src.TransformRules
 {
     class SequenceStringTransformRuleFactory : ITransformRuleFactory
     {

@@ -6,15 +6,15 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using XmlTesterPresentation.ViewsModels;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src;
+using XmlTester.ViewsModels;
+using XmlTester.Interfaces;
+using XmlTester.src;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation.UIControls
+namespace XmlTester.UIControls
 {
     /// <summary>
     /// Interaction logic for RuleTreeControl.xaml

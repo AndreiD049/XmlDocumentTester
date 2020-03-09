@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
-namespace XmlTesterPresentation.src.TransformRules.TransformRuleValidators
+namespace XmlTester.src.TransformRules.TransformRuleValidators
 {
     class RandomIntegerValidator : ITransformRuleValidator
     {

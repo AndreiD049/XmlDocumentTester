@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules.TransformRuleValidators;
+using System.Windows;
+using System.Windows.Controls;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules.TransformRuleValidators;
 
-namespace XmlTesterPresentation.src.TransformRules
+namespace XmlTester.src.TransformRules
 {
     public class RepeatNodeTransformRule : IXMLTransformRule, IXmlWriter
     {
@@ -31,10 +33,12 @@ namespace XmlTesterPresentation.src.TransformRules
         {
             if (!Validator.Validate(node))
                 return;
+            XmlNode last = node;
             for (int i = 0; i < Times; ++i)
             {
                 XmlNode copy = node.Clone();
-                node.ParentNode.InsertAfter(copy, node);
+                node.ParentNode.InsertAfter(copy, last);
+                last = copy;
                 // Transform all the subset nodes
                 foreach (XmlNode x in Utils.getAllNodesEnumerable(copy))
                 {

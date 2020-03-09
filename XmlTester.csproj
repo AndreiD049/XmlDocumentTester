@@ -4,12 +4,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon />
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
     <StartupObject />
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>AnyCPU;x64;</Platforms>
     <AssemblyVersion>1.2.0.0</AssemblyVersion>
     <PublishTrimmed>true</PublishTrimmed>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="assets\search-engine.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="data\Documents\" />
@@ -18,6 +22,10 @@
 
   <ItemGroup>
     <PackageReference Include="Ookii.Dialogs" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\search-engine.png" />
   </ItemGroup>
 
 </Project>

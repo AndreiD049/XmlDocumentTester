@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.ViewsModels;
-using XmlTesterPresentation.src.TransformRules;
-using XmlTesterPresentation.src;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.ViewsModels;
+using XmlTester.src.TransformRules;
+using XmlTester.src;
+using XmlTester.Interfaces;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation.UIControls
+namespace XmlTester.UIControls
 {
     /// <summary>
     /// Interaction logic for NewRulesButtonsList.xaml

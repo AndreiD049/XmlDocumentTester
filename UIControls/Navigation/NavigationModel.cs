@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace XmlTesterPresentation.UIControls.Navigation
+namespace XmlTester.UIControls.Navigation
 {
     public enum CurrentScreenType { DocScreen, TestCaseScreen, RulesScreen };
     public class NavigationModel: INotifyPropertyChanged
@@ -63,6 +63,15 @@ namespace XmlTesterPresentation.UIControls.Navigation
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void OnSearchText(string val)
+        {
+            ISearchable page = MainWin.ContentArea.Content as ISearchable;
+            if (page != null)
+            {
+                page.Search(val);
+            }
         }
     }
 }

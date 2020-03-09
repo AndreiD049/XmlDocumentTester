@@ -3,17 +3,17 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src;
-using XmlTesterPresentation.UIControls;
-using XmlTesterPresentation.UIControls.Navigation;
+using XmlTester.Interfaces;
+using XmlTester.src;
+using XmlTester.UIControls;
+using XmlTester.UIControls.Navigation;
 
-namespace XmlTesterPresentation
+namespace XmlTester
 {
     /// <summary>
     /// Interaction logic for DocPage.xaml
     /// </summary>
-    public partial class DocPage : UserControl 
+    public partial class DocPage : UserControl, ISearchable
     {
         public ObservableCollection<IXMLDocument> SourceDocs { get; set; }
         public IApplication App { get; set; }
@@ -71,6 +71,28 @@ namespace XmlTesterPresentation
             newFileExpander.IsExpanded = true;
             newFileExpander.IsEnabled = true;
             newFileExpander.Content = new EditControlExpander(this, doc);
+        }
+
+        public void Search(string value)
+        {
+            foreach(Grid g in Utils.FindVisualChildren<Grid>(docViewer))
+            {
+                foreach(TextBlock t in Utils.FindVisualChildren<TextBlock>(g))
+                {
+                    if ((string)t.Tag == "Search")
+                    {
+                        if (t.Text.IndexOf(value) < 0)
+                        {
+                            g.Visibility = Visibility.Collapsed;
+                        }
+                        if (value == string.Empty || t.Text.IndexOf(value) >= 0)
+                        {
+                            g.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }

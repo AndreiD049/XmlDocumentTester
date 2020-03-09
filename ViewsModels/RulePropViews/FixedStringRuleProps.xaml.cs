@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.src.TransformRules;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src;
-using XmlTesterPresentation;
+using XmlTester.src.TransformRules;
+using XmlTester.Interfaces;
+using XmlTester.src;
+using XmlTester;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation.ViewsModels.RulePropViews
+namespace XmlTester.ViewsModels.RulePropViews
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml

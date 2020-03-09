@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Xml;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.src.TransformRules.TransformRuleValidators;
+using XmlTester.Interfaces;
+using XmlTester.src.TransformRules.TransformRuleValidators;
 using System.Collections.Generic;
 
-namespace XmlTesterPresentation.src.TransformRules
+namespace XmlTester.src.TransformRules
 {
-    public class SequenceTransformRule : IXMLTransformRule, IXmlWriter
+    public class SequenceTransformRule : IXMLTransformRule, IXmlWriter, ISequentialRule
     {
         private int nextValue;
 
@@ -38,38 +38,25 @@ namespace XmlTesterPresentation.src.TransformRules
                     return string.Empty;
             }
         }
-        // set to true if the value already was transformed
-        public bool transformed { get; set; } = false;
 
-        public SequenceTransformRule(List<string> values, string path, int next, bool transformed = false)
+        public SequenceTransformRule(List<string> values, string path, int next)
         {
             Path = path;
             Values = values;
             NextValue = next;
-            this.transformed = transformed;
             Validator = new GenericValidator();
         }
 
         public object Clone()
         {
-            return new SequenceTransformRule(new List<string>(Values), Path, NextValue, transformed);
+            return new SequenceTransformRule(new List<string>(Values), Path, NextValue);
         }
 
         public void transform(XmlNode node)
         {
             if (Validator.Validate(node))
             {
-                if (transformed)
-                {
-                    node.InnerText = Values[NextValue];
-                }
-                else
-                {
-                    // Set the node content and increment NextValue
-                    node.InnerText = Values[NextValue];
-                    NextValue = NextValue + 1;
-                    transformed = true;
-                }
+                node.InnerText = Values[NextValue];
             }
         }
 
@@ -93,7 +80,11 @@ namespace XmlTesterPresentation.src.TransformRules
             writer.WriteElementString("Type", RuleType.ToString());
             writer.WriteElementString("Values", String.Join("<~>", Values.ToArray()));
             writer.WriteElementString("NextValue", NextValue.ToString());
-            transformed = false;
+        }
+
+        public void UpdateSequencialValues()
+        {
+            NextValue += 1;
         }
     }
 }

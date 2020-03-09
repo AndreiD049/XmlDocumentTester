@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.UIControls.DocumentTreeElements;
+using XmlTester.Interfaces;
+using XmlTester.UIControls.DocumentTreeElements;
 using System.Windows.Controls;
 using System.Xml;
-using XmlTesterPresentation.src;
+using XmlTester.src;
 using System.Windows;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Text;
 
-namespace XmlTesterPresentation.ViewsModels
+namespace XmlTester.ViewsModels
 {
     public class RuleViewModel
     {
@@ -127,8 +127,15 @@ namespace XmlTesterPresentation.ViewsModels
                 testCase.generate();
                 ClearTree(View.ruleTree.docTreeViewer);
                 ConstructTree<TreeView>(View.ruleTree.docTreeViewer, testCase.TransformedDocument.Root);
+                if (View.ruleTree.docTreeViewer.Items.Count > 0)
+                    ((NodeTreeViewItem)View.ruleTree.docTreeViewer.Items[0]).Loaded += UpdateSearch;
                 UpdateTreeNodesMap();
             }
+        }
+
+        private void UpdateSearch(object source, RoutedEventArgs e)
+        {
+            View.Search(View.MainWin.NavigationToolbar.SearchBar.Text);
         }
 
         public void CloseProps()

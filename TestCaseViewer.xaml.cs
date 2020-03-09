@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.Interfaces;
-using XmlTesterPresentation.UIControls;
+using XmlTester.Interfaces;
+using XmlTester.UIControls;
 using System.Collections.Specialized;
 using System.Collections.ObjectModel;
+using XmlTester.src;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,12 +16,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation
+namespace XmlTester
 {
     /// <summary>
     /// Interaction logic for TestCaseViewer.xaml
     /// </summary>
-    public partial class TestCaseViewer : UserControl 
+    public partial class TestCaseViewer : UserControl, ISearchable
     {
         public ObservableCollection<ITestCase> TestCases { get; set; }
         public MainWindow MainWin { get; set; }
@@ -46,7 +47,7 @@ namespace XmlTesterPresentation
             MainWin.NavModel.GoTo_Rules(testCase);
         }
 
-        private void Expander_Collapsed(object source, RoutedEventArgs e)
+        public void Expander_Collapsed(object source, RoutedEventArgs e)
         {
             newTestCaseExpander.IsEnabled = false;
         }
@@ -82,6 +83,7 @@ namespace XmlTesterPresentation
             Button btn = (Button)source;
             ITestCase testCase = btn.DataContext as ITestCase;
             testCase.generate();
+            testCase.UpdateSequentialRules();
             testCase.Document.TestSuiteSaver.SaveSuite();
             testCase.SaveOnLocation();
         }
@@ -91,8 +93,30 @@ namespace XmlTesterPresentation
             foreach(ITestCase tc in TestCases)
             {
                 tc.generate();
+                tc.UpdateSequentialRules();
                 tc.Document.TestSuiteSaver.SaveSuite();
                 tc.SaveOnLocation();
+            }
+        }
+        public void Search(string value)
+        {
+            foreach(Grid g in Utils.FindVisualChildren<Grid>(caseViewer))
+            {
+                foreach(TextBlock t in Utils.FindVisualChildren<TextBlock>(g))
+                {
+                    if ((string)t.Tag == "Search")
+                    {
+                        if (t.Text.IndexOf(value) < 0)
+                        {
+                            g.Visibility = Visibility.Collapsed;
+                        }
+                        if (value == string.Empty || t.Text.IndexOf(value) >= 0)
+                        {
+                            g.Visibility = Visibility.Visible;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
-namespace XmlTesterPresentation.src
+namespace XmlTester.src
 {
     class TestCase : ITestCase, IXmlWriter
     {
@@ -105,6 +105,17 @@ namespace XmlTesterPresentation.src
         public void SaveOnLocation()
         {
             TransformedDocument.Save(Path.Combine(SaveLocation, $"{Name} - {DateTime.Now.Ticks}.xml"));
+        }
+        public void UpdateSequentialRules()
+        {
+            foreach(IXMLTransformRule rule in Utils.FlattenTransformRules(rules))
+            {
+                ISequentialRule seq_rule = rule as ISequentialRule;
+                if (seq_rule != null)
+                {
+                    seq_rule.UpdateSequencialValues();
+                }
+            }
         }
     }
 }

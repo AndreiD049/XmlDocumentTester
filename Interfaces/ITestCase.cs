@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace XmlTesterPresentation.Interfaces
+namespace XmlTester.Interfaces
 {
     public interface ITestCase
     {
@@ -34,5 +34,6 @@ namespace XmlTesterPresentation.Interfaces
         public void RemoveRule(string key, IXMLTransformRule rule);
 
         public void setDocument(IXMLDocument doc);
+        public void UpdateSequentialRules();
     }
 }

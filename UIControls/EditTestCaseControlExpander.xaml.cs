@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 using Ookii.Dialogs.Wpf;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation.UIControls
+namespace XmlTester.UIControls
 {
     /// <summary>
     /// Interaction logic for EditTestCaseControlExpander.xaml
@@ -33,11 +33,18 @@ namespace XmlTesterPresentation.UIControls
         private void Save_Clicked(object source, RoutedEventArgs e)
         {
             if (newTestCaseName.Text != string.Empty)
+            {
                 TestCase.Name = newTestCaseName.Text;
+                newTestCaseName.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
             if (newTestCasePath.Text != string.Empty &&
                 Directory.Exists(newTestCasePath.Text))
+            {
                 TestCase.SaveLocation = newTestCasePath.Text;
+                newTestCasePath.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            }
             TestCase.Document.TestSuiteSaver.SaveSuite();
+            Page.newTestCaseExpander.IsExpanded = false;
         }
 
         private void OpenDlg_Clicked(object source, RoutedEventArgs e)

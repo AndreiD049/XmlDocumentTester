@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Xml;
 using System.IO;
-using XmlTesterPresentation.Interfaces;
+using XmlTester.Interfaces;
 
-namespace XmlTesterPresentation.src
+namespace XmlTester.src
 {
     class TestCaseParser
     {

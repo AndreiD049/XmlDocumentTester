@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XmlTesterPresentation.UIControls.Navigation
+namespace XmlTester.UIControls.Navigation
 {
     /// <summary>
     /// Interaction logic for NavToolbar.xaml
@@ -38,6 +38,10 @@ namespace XmlTesterPresentation.UIControls.Navigation
         private void TestCases_Clicked(object source, RoutedEventArgs e)
         {
             NavModel.GoTo_TestCases();
+        }
+        private void Search_Changed(object source, RoutedEventArgs e)
+        {
+            NavModel.OnSearchText(SearchBar.Text);
         }
     }
 }
