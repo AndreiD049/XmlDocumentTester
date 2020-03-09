@@ -26,7 +26,7 @@ namespace XmlTester.ViewsModels
             testCase.generate();
             TreeNodesMap = new Dictionary<string, TreeViewItem>();
             //ConstructTree<TreeView>(viewer.ruleTree.docTreeViewer, viewer.testCase.TransformedDocument.Root);
-            UpdateTreeNodesMap();
+            //UpdateTreeNodesMap();
         }
 
         private void Init()

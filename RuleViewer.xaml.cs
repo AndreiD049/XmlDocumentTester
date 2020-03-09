@@ -27,19 +27,19 @@ namespace XmlTester
         public TreeView docTreeViewControl { get; set; }
         public MainWindow MainWin { get; set; }
         public ITransformRuleProps Props { get; set; }
+        public RuleTreeControl ruleTree { get; set; }
         public RuleViewer(ITestCase testCase, MainWindow mainWin)
         {
             InitializeComponent();
             this.testCase = testCase;
             MainWin = mainWin;
+            ruleTree = new RuleTreeControl(this);
+            ruleTreeContainer.Content = ruleTree;
             docTreeViewControl = ruleTree.docTreeViewer;
             ViewModel = new RuleViewModel(this, testCase);
             ruleList.ViewModel = ViewModel;
             newRuleButtonList.View = this;
             newRuleButtonList.ViewModel = ViewModel;
-            ruleTree.View = this;
-            ruleTree.ViewModel = ViewModel;
-            ruleTree.setItemsSrource();
         }
 
         private void AddNew_Clicked(object source, RoutedEventArgs e)

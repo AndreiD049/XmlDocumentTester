@@ -6,16 +6,21 @@
              xmlns:local="clr-namespace:XmlTester.UIControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Padding="10" PreviewMouseWheel="ListViewScrollViewer_PreviewMouseWheel">
-            <TreeView x:Name="docTreeViewer" SelectedItemChanged="Selected_Changed" Style="{StaticResource FESmallText}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling">
+            <TreeView x:Name="docTreeViewer" VerticalAlignment="Stretch" SelectedItemChanged="Selected_Changed" Style="{StaticResource FESmallText}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling">
             <TreeView.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
             </TreeView.Resources>
-            <TreeView.ItemTemplate>
+            <TreeViewItem x:Name="root" Header="{Binding}" IsExpanded="True">
+            <TreeViewItem.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding Path=ChildNodes}">
                     <TextBlock Text="{Binding Name}"/>
                 </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
+            </TreeViewItem.ItemTemplate>
+                <TreeViewItem.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="TreeViewItem.IsExpanded" Value="True"/>
+                    </Style>
+                </TreeViewItem.ItemContainerStyle>
+            </TreeViewItem>
             </TreeView>
-        </ScrollViewer>
 </UserControl>

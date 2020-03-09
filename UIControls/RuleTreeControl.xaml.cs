@@ -23,14 +23,13 @@ namespace XmlTester.UIControls
     {
         public RuleViewer View { get; set; }
         public RuleViewModel ViewModel { get; set; }
-        public RuleTreeControl()
+        public RuleTreeControl(RuleViewer View)
         {
             InitializeComponent();
-        }
-
-        public void setItemsSrource()
-        {
-            docTreeViewer.ItemsSource = View.testCase.Document.Root;
+            this.View = View;
+            ViewModel = View.ViewModel;
+            root.DataContext = View.testCase.Document.Root.Name;
+            root.ItemsSource = View.testCase.Document.Root;
         }
 
         private void ListViewScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
