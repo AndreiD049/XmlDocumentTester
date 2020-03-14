@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.ComponentModel;
+using System.Threading;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -41,7 +43,20 @@ namespace XmlTester.UIControls.Navigation
         }
         private void Search_Changed(object source, RoutedEventArgs e)
         {
-            NavModel.OnSearchText(SearchBar.Text);
+            
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                NavModel.OnSearchText(SearchBar.Text);
+            }));
+        }
+
+        private void Got_Focus(object source, RoutedEventArgs e)
+        {
+            if (!e.Handled)
+            {
+                NavModel.BeforeSearch();
+                e.Handled = true;
+            }
         }
     }
 }

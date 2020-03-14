@@ -73,5 +73,15 @@ namespace XmlTester.UIControls.Navigation
                 page.Search(val);
             }
         }
+
+
+        public void BeforeSearch()
+        {
+            ISearchable page = MainWin.ContentArea.Content as ISearchable;
+            if (page != null)
+            {
+                page.BeforeSearch();
+            }
+        }
     }
 }

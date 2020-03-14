@@ -72,8 +72,8 @@ namespace XmlTester.ViewsModels.RulePropViews
             TreeView tree = View.docTreeViewControl;
             if (tree.SelectedItem != null)
             {
-                TreeViewItem selected_item = tree.SelectedItem as TreeViewItem;
-                this.Path.Text = ""; // TODO Update 
+                ITreeElement selected_item = tree.SelectedItem as ITreeElement;
+                this.Path.Text = Utils.getFullPath(selected_item.Node);
             }
         }
 

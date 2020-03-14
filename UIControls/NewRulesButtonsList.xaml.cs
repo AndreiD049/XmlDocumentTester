@@ -38,7 +38,7 @@ namespace XmlTester.UIControls
 
         private void NewFixed_Clicked(object source, RoutedEventArgs e)
         {
-            string path = Utils.getFullPath(((TreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.DataContext as XmlNode);
+            string path = Utils.getFullPath((View.ruleTree.docTreeViewer.SelectedItem as ITreeElement)?.Node);
             FixedStringTransformRule rule = new FixedStringTransformRule("", path);
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
@@ -46,7 +46,7 @@ namespace XmlTester.UIControls
 
         private void NewRandom_Clicked(object source, RoutedEventArgs e)
         {
-            string path = Utils.getFullPath(((TreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.DataContext as XmlNode);
+            string path = Utils.getFullPath((View.ruleTree.docTreeViewer.SelectedItem as ITreeElement)?.Node);
             RandomStringTransformRule rule = new RandomStringTransformRule(0, path);
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
@@ -54,7 +54,7 @@ namespace XmlTester.UIControls
 
         private void NewRandomInt_Clicked(object source, RoutedEventArgs e)
         {
-            string path = Utils.getFullPath(((TreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.DataContext as XmlNode);
+            string path = Utils.getFullPath((View.ruleTree.docTreeViewer.SelectedItem as ITreeElement)?.Node);
             RandomIntegerTransformRule rule = new RandomIntegerTransformRule(0, 100000, path);
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
@@ -62,18 +62,18 @@ namespace XmlTester.UIControls
 
         private void NewRepeat_Clicked(object source, RoutedEventArgs e)
         {
-            string path = Utils.getFullPath(((TreeViewItem)View.ruleTree.docTreeViewer.SelectedItem)?.DataContext as XmlNode);
+            string path = Utils.getFullPath((View.ruleTree.docTreeViewer.SelectedItem as ITreeElement)?.Node);
             RepeatNodeTransformRule rule = new RepeatNodeTransformRule(1, path);
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
         }
         private void NewIncrement_Clicked(object source, RoutedEventArgs e)
         {
-            TreeViewItem item = (TreeViewItem)View.ruleTree.docTreeViewer.SelectedItem;
-            string path = Utils.getFullPath(item?.DataContext as XmlNode);
+            ITreeElement item = (ITreeElement)View.ruleTree.docTreeViewer.SelectedItem;
+            string path = Utils.getFullPath(item?.Node as XmlNode);
             string current_value = "00001";
             if (item != null)
-                current_value = ((XmlNode)item.DataContext).InnerText;
+                current_value = ((XmlNode)item.Node).InnerText;
             IncrementStringTransformRule rule = new IncrementStringTransformRule(current_value, path);
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
@@ -81,11 +81,11 @@ namespace XmlTester.UIControls
 
         private void NewSequence_Clicked(object source, RoutedEventArgs e)
         {
-            TreeViewItem item = (TreeViewItem)View.ruleTree.docTreeViewer.SelectedItem;
-            string path = Utils.getFullPath(item?.DataContext as XmlNode);
+            ITreeElement item = (ITreeElement)View.ruleTree.docTreeViewer.SelectedItem;
+            string path = Utils.getFullPath(item?.Node as XmlNode);
             string current_value = "Value";
             if (item != null)
-                current_value = ((XmlNode)item.DataContext).InnerText;
+                current_value = item.Node.InnerText;
             SequenceTransformRule rule = new SequenceTransformRule(new List<string>() { current_value }, path, 0);
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();

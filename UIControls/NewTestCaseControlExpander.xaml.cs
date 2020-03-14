@@ -48,6 +48,7 @@ namespace XmlTester.UIControls
                 newTestCasePath.Text != string.Empty)
             {
                 ITestCase testCase = new TestCase(newTestCaseName.Text, Document, newTestCasePath.Text);
+                testCase.AddOption("DefaultExpanded", DefExpanded.IsChecked.ToString());
                 Page.TestCases.Add(testCase);
                 Document.AddTestCase(testCase);
             }

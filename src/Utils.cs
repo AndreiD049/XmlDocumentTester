@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Text;
 using XmlTester.Interfaces;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,18 +26,19 @@ namespace XmlTester.src
             string path = "";
             if (element.NodeType == XmlNodeType.Attribute)
             {
-                path = "@" + element.Name;
+                path = $"/@{element.Name}";
                 element = ((XmlAttribute)element).OwnerElement;
+                return element.GetXPath_SequentialIteration() + path;
             }
             path = "/" + element.Name + path;
 
-
             XmlElement parentElement = element.ParentNode as XmlElement;
-            if (parentElement != null)
+            if (parentElement != null && (element.NodeType == XmlNodeType.Element || element.NodeType == XmlNodeType.Attribute))
             {
                 // Gets the position within the parent element.
                 // However, this position is irrelevant if the element is unique under its parent:
-                XmlNodeList siblings = parentElement.SelectNodes(element.Name);
+                // Use GetElementsByTagName instead of SelectNodes (used for XmlDocuments with namespaces)
+                XmlNodeList siblings = parentElement.GetElementsByTagName(element.Name);
                 int position = 1;
                 foreach (XmlElement sibling in siblings)
                 {
@@ -52,6 +54,41 @@ namespace XmlTester.src
                 path = parentElement.GetXPath_SequentialIteration() + path;
             }
             return path;
+        }
+
+        public static XmlNode SelectSingleNode(XmlNode node, string xpath)
+        {
+            if (node.NamespaceURI != string.Empty)
+            {
+                XmlNamespaceManager mgr = new XmlNamespaceManager(node.OwnerDocument.NameTable);
+                mgr.AddNamespace(node.GetPrefixOfNamespace(node.NamespaceURI), node.NamespaceURI);
+                return node.SelectSingleNode(xpath, mgr);
+            }
+            else
+            {
+                // if cannot return find this path, just skip it
+                try
+                {
+                    return node.SelectSingleNode(xpath);
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static XmlNode GetParentNode(XmlNode node)
+        {
+            switch (node?.NodeType)
+            {
+                case XmlNodeType.Element:
+                case XmlNodeType.Text:
+                    return node.ParentNode;
+                case XmlNodeType.Attribute:
+                    return ((XmlAttribute)node).OwnerElement;
+            }
+            return null;
         }
 
         /// <summary>

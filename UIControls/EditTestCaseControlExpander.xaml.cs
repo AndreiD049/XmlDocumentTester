@@ -27,6 +27,9 @@ namespace XmlTester.UIControls
             InitializeComponent();
             Page = (TestCaseViewer)page;
             TestCase = testCase;
+            // set checkbox
+            Boolean.TryParse(TestCase.GetOption("DefaultExpanded"), out bool expanded);
+            DefExpanded.IsChecked = expanded;
             this.DataContext = testCase;
         }
 
@@ -43,6 +46,7 @@ namespace XmlTester.UIControls
                 TestCase.SaveLocation = newTestCasePath.Text;
                 newTestCasePath.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             }
+            TestCase.AddOption("DefaultExpanded", DefExpanded.IsChecked.ToString());
             TestCase.Document.TestSuiteSaver.SaveSuite();
             Page.newTestCaseExpander.IsExpanded = false;
         }

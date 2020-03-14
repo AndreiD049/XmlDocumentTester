@@ -22,6 +22,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Add New Test Case" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource MarginStyle}"/>
         <TextBlock Text="Name: " Grid.Row="1" Grid.Column="0" Style="{StaticResource MarginStyle}"/>
@@ -31,6 +32,8 @@
             <TextBox x:Name="newTestCasePath" MinWidth="200" MaxWidth="500" IsReadOnly="True"/>
             <Button Content="..." Click="OpenDlg_Clicked" Style="{StaticResource FESmallText}"/>
         </StackPanel>
-        <Button Content="Save" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource RoundButtonTemplate}" HorizontalAlignment="Center" Width="70" Height="25" Margin="0,20,0,20" Click="SaveBtn_Clicked"/>
+        <TextBlock Text="Default Expanded: " Grid.Row="3" Grid.Column="0" Style="{StaticResource MarginStyle}"/>
+        <CheckBox x:Name="DefExpanded" Grid.Row="3" Grid.Column="1" Style="{StaticResource MarginStyle}"/>
+        <Button Content="Save" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource RoundButtonTemplate}" HorizontalAlignment="Center" Width="70" Height="25" Margin="0,20,0,20" Click="SaveBtn_Clicked"/>
     </Grid>
 </UserControl>

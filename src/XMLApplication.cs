@@ -51,10 +51,5 @@ namespace XmlTester.src
             File.Delete(Path.Combine(this.DataFolder, DocumentsFolder, Path.GetFileName(doc.FullPath)));
             XmlDocuments.Remove(doc);
         }
-
-        public void run()
-        {
-            Console.WriteLine("Application running");
-        }
     }
 }

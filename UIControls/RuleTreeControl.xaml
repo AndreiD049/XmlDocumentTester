@@ -4,23 +4,63 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:XmlTester.UIControls"
+             xmlns:vs="clr-namespace:XmlTester.UIControls.VisualTreeElements"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-            <TreeView x:Name="docTreeViewer" VerticalAlignment="Stretch" SelectedItemChanged="Selected_Changed" Style="{StaticResource FESmallText}" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling">
+            <TreeView x:Name="docTreeViewer" VerticalAlignment="Stretch" SelectedItemChanged="Selected_Changed" Style="{StaticResource FESmallText}" VirtualizingPanel.CacheLength="100" VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling" >
             <TreeView.Resources>
                 <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
-            </TreeView.Resources>
-            <TreeViewItem x:Name="root" Header="{Binding}" IsExpanded="True">
-            <TreeViewItem.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding Path=ChildNodes}">
-                    <TextBlock Text="{Binding Name}"/>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="TextBlock.Background" Value="Red"/>
+                    <Setter Property="IsExpanded" Value="{Binding Expanded, Mode=TwoWay}"/>
+                    <Setter Property="IsEnabled" Value="{Binding Enabled}"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <EventSetter Event="Loaded" Handler="TreeViewItem_Loaded"/>
+                    <EventSetter Event="Expanded" Handler="TreeViewItem_Expanded"/>
+                    <EventSetter Event="MouseRightButtonDown" Handler="TreeViewItem_MouseRightButton"/>
+                </Style>
+                <Style x:Key="GenericNodeStyle" TargetType="{x:Type Border}" BasedOn="{StaticResource FESmallText}">
+                    <Setter Property="Padding" Value="10 5 10 5"/>
+                </Style>
+                <Style x:Key="SelectedNodeStyle" TargetType="{x:Type Border}" BasedOn="{StaticResource GenericNodeStyle}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type TreeViewItem}, Mode=FindAncestor}, Path=IsSelected}" Value="True">
+                            <Setter Property="Background" Value="#fd5e53"/>
+                            <Setter Property="TextBlock.Foreground" Value="White"/>
+                            <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+                <Style x:Key="NodeStyle" TargetType="Border" BasedOn="{StaticResource SelectedNodeStyle}">
+                    <Setter Property="Background" Value="#f1935c"/>
+                </Style>
+                <Style x:Key="AttributeStyle" TargetType="Border" BasedOn="{StaticResource SelectedNodeStyle}">
+                    <Setter Property="TextBlock.Foreground" Value="#21bf73"/>
+                </Style>
+                <Style x:Key="TextNodeStyle" TargetType="Border" BasedOn="{StaticResource SelectedNodeStyle}">
+                    <Setter Property="TextBlock.Foreground" Value="LightSlateGray"/>
+                </Style>
+                <HierarchicalDataTemplate DataType="{x:Type vs:NodeVisualTreeElement}" ItemsSource="{Binding Path=ChildNodes}">
+                    <Border Style="{StaticResource NodeStyle}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" Tag="Search"/>
+                        </StackPanel>
+                    </Border>
                 </HierarchicalDataTemplate>
-            </TreeViewItem.ItemTemplate>
-                <TreeViewItem.ItemContainerStyle>
-                    <Style>
-                        <Setter Property="TreeViewItem.IsExpanded" Value="True"/>
-                    </Style>
-                </TreeViewItem.ItemContainerStyle>
-            </TreeViewItem>
+                <HierarchicalDataTemplate DataType="{x:Type vs:AttributeVisualTreeElement}" ItemsSource="{Binding Path=ChildNodes}">
+                    <Border Style="{StaticResource AttributeStyle}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" Tag="Search"/>
+                        </StackPanel>
+                    </Border>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type vs:TextVisualTreeElement}" ItemsSource="{Binding Path=ChildNodes}">
+                    <Border Style="{StaticResource TextNodeStyle}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" Tag="Search"/>
+                        </StackPanel>
+                    </Border>
+                </HierarchicalDataTemplate> 
+            </TreeView.Resources>
             </TreeView>
 </UserControl>

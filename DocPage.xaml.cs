@@ -72,7 +72,10 @@ namespace XmlTester
             newFileExpander.IsEnabled = true;
             newFileExpander.Content = new EditControlExpander(this, doc);
         }
+        public void BeforeSearch()
+        {
 
+        }
         public void Search(string value)
         {
             string l_value = value.ToLower();

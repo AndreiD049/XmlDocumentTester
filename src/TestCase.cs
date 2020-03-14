@@ -8,32 +8,36 @@ namespace XmlTester.src
 {
     class TestCase : ITestCase, IXmlWriter
     {
-        public TestCase(string Name, string SaveLocation)
+        public TestCase(string Name, string SaveLocation, Dictionary<string, string> options = null)
         {
+            this.Options = options != null ? options: new Dictionary<string, string>();
             this.Name = Name;
             this.SaveLocation = SaveLocation;
             rules = new Dictionary<string, List<IXMLTransformRule>>();
             Document = null;
         }
 
-        public TestCase(string Name, string SaveLocation, IDictionary<string, List<IXMLTransformRule>> rules)
+        public TestCase(string Name, string SaveLocation, IDictionary<string, List<IXMLTransformRule>> rules, Dictionary<string, string> options = null)
         {
+            this.Options = options != null ? options: new Dictionary<string, string>();
             this.Name = Name;
             this.SaveLocation = SaveLocation;
             this.rules = new Dictionary<string, List<IXMLTransformRule>>(rules);
             Document = null;
         }
 
-        public TestCase(string Name, IXMLDocument doc, string SaveLocation)
+        public TestCase(string Name, IXMLDocument doc, string SaveLocation, Dictionary<string, string> options = null)
         {
+            this.Options = options != null ? options: new Dictionary<string, string>();
             this.Name = Name;
             this.SaveLocation = SaveLocation;
             rules = new Dictionary<string, List<IXMLTransformRule>>();
             Document = doc;
         }
 
-        public TestCase(string Name, IXMLDocument doc, string SaveLocation, IDictionary<string, List<IXMLTransformRule>> rules)
+        public TestCase(string Name, IXMLDocument doc, string SaveLocation, IDictionary<string, List<IXMLTransformRule>> rules, Dictionary<string, string> options = null)
         {
+            this.Options = options != null ? options: new Dictionary<string, string>();
             this.Name = Name;
             this.SaveLocation = SaveLocation;
             this.rules = new Dictionary<string, List<IXMLTransformRule>>(rules);
@@ -45,6 +49,7 @@ namespace XmlTester.src
         public Dictionary<string, List<IXMLTransformRule>> rules { get; set; }
         public IXMLDocument Document { get; set; }
         public IXMLDocument TransformedDocument { get; set; }
+        public Dictionary<string, string> Options { get; set; }
 
         public void AddRule(string key, IXMLTransformRule rule)
         {
@@ -88,6 +93,13 @@ namespace XmlTester.src
             // Write the testCase Name and rules
             writer.WriteElementString("Name", Name);
             writer.WriteElementString("SaveLocation", SaveLocation);
+            // Write options
+            writer.WriteStartElement("Options");
+            foreach(string key in Options.Keys)
+            {
+                writer.WriteElementString(key, Options[key]);
+            }
+            writer.WriteEndElement();
             // Rules
             writer.WriteStartElement("Rules");
             List<IXMLTransformRule> flattened_rules = Utils.FlattenTransformRules(rules);
@@ -116,6 +128,17 @@ namespace XmlTester.src
                     seq_rule.UpdateSequencialValues();
                 }
             }
+        }
+
+        public void AddOption(string key, string value)
+        {
+            Options[key] = value;
+        }
+
+        public string GetOption(string key)
+        {
+            Options.TryGetValue(key, out string result);
+            return result;
         }
     }
 }

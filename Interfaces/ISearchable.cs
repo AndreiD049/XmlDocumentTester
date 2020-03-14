@@ -7,5 +7,6 @@ namespace XmlTester.Interfaces
     public interface ISearchable
     {
         public void Search(string value);
+        public void BeforeSearch();
     }
 }

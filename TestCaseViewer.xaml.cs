@@ -98,6 +98,10 @@ namespace XmlTester
                 tc.SaveOnLocation();
             }
         }
+        public void BeforeSearch()
+        {
+
+        }
         public void Search(string value)
         {
             string l_value = value.ToLower();

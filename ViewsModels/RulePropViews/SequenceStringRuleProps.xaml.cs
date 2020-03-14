@@ -4,6 +4,7 @@ using XmlTester.src.TransformRules;
 using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using XmlTester.src;
 
 namespace XmlTester.ViewsModels.RulePropViews
 {
@@ -31,13 +32,13 @@ namespace XmlTester.ViewsModels.RulePropViews
             TreeView tree = View.docTreeViewControl;
             if (tree.SelectedItem != null)
             {
-                TreeViewItem selected_item = tree.SelectedItem as TreeViewItem;
-                this.Path.Text = ""; // TODO change
+                ITreeElement selected_item = tree.SelectedItem as ITreeElement;
+                this.Path.Text = Utils.getFullPath(selected_item.Node);
             }
             NextValue.Text = ((SequenceTransformRule)Copy).NextValueItem;
             NextIndex.Text = ((SequenceTransformRule)Copy).NextValue.ToString();
-
         }
+
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)
         {
             Path.Text = "";

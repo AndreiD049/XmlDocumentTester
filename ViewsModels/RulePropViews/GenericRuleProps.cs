@@ -18,7 +18,8 @@ namespace XmlTester.ViewsModels.RulePropViews
         public void Save()
         {
             // Check if Node is Valid
-            XmlNode node = null; // TODO change 
+            ITreeElement sel_element = View.ruleTree.docTreeViewer.SelectedItem as ITreeElement;
+            XmlNode node = sel_element?.Node; // TODO change 
             if (node != null)
             {
                 if (!Copy.Validator.Validate(node))
@@ -57,6 +58,7 @@ namespace XmlTester.ViewsModels.RulePropViews
                 View.ViewModel.testCase.RemoveRule(Rule.Path, Rule);
                 View.ViewModel.Rules.Remove(Rule);
                 View.ViewModel.CloseProps();
+                View.ViewModel.RedrawTree();
                 View.testCase.Document.TestSuiteSaver.SaveSuite();
             }
         }

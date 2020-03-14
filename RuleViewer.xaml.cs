@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using XmlTester.src;
+using System.Threading;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -33,6 +34,7 @@ namespace XmlTester
             InitializeComponent();
             this.testCase = testCase;
             MainWin = mainWin;
+            testCase.generate();
             ruleTree = new RuleTreeControl(this);
             ruleTreeContainer.Content = ruleTree;
             docTreeViewControl = ruleTree.docTreeViewer;
@@ -53,24 +55,30 @@ namespace XmlTester
             scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
             e.Handled = true;
         }
+        public void BeforeSearch()
+        {
+            ruleTree.Root.ChainExpand();
+        }
         public void Search(string value)
         {
             string l_value = value.ToLower();
-            foreach(TreeViewItem g in Utils.FindVisualChildren<TreeViewItem>(ruleTree))
+            foreach(TreeViewItem treeViewItem in Utils.FindVisualChildren<TreeViewItem>(ruleTree))
             {
-                foreach(TextBlock t in Utils.FindVisualChildren<TextBlock>(g))
+                foreach(TextBlock textBox in Utils.FindVisualChildren<TextBlock>(treeViewItem))
                 {
-                    if ((string)t.Tag == "Search")
+                    if ((string)textBox.Tag == "Search")
                     {
-                        if (t.Text.ToLower().IndexOf(l_value) < 0)
+                        if (textBox.Text.ToLower().IndexOf(l_value) < 0)
                         {
-                            g.Visibility = Visibility.Collapsed;
+                            treeViewItem.Visibility = Visibility.Collapsed;
                         }
-                        if (l_value == string.Empty || t.Text.ToLower().IndexOf(l_value) >= 0)
+                        if (l_value == string.Empty || textBox.Text.ToLower().IndexOf(l_value) >= 0)
                         {
-                            g.Visibility = Visibility.Visible;
-                            if (g.IsSelected)
-                                g.BringIntoView();
+                            treeViewItem.Visibility = Visibility.Visible;
+                            if (treeViewItem.IsSelected)
+                            {
+                                treeViewItem.BringIntoView();
+                            }
                             break;
                         }
                     }

@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using XmlTester.Interfaces;
 using XmlTester.src.TransformRules;
+using XmlTester.src;
 
 namespace XmlTester.ViewsModels.RulePropViews
 {
@@ -35,8 +36,8 @@ namespace XmlTester.ViewsModels.RulePropViews
             TreeView tree = View.docTreeViewControl;
             if (tree.SelectedItem != null)
             {
-                TreeViewItem selected_item = tree.SelectedItem as TreeViewItem;
-                this.Path.Text = ""; // TODO Change
+                ITreeElement selected_item = tree.SelectedItem as ITreeElement;
+                this.Path.Text = Utils.getFullPath(selected_item.Node);
             }
         }
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)

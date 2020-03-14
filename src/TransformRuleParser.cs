@@ -33,7 +33,6 @@ namespace XmlTester.src
             IXMLTransformRule rule = factory.createRule(t, ruleNode);
             if (rule != null)
             {
-                Console.WriteLine($"adding rule for path {path.InnerText}");
                 TestCase.AddRule(path.InnerText, rule);
             }
         }

@@ -8,6 +8,7 @@ namespace XmlTester.Interfaces
     {
         public string Name { get; set; }
         public string SaveLocation { get; set; }
+        public Dictionary<string, string> Options { get; set; }
         /// <summary>
         /// Reference to the IXMLDocument to work with
         /// </summary>
@@ -35,5 +36,8 @@ namespace XmlTester.Interfaces
 
         public void setDocument(IXMLDocument doc);
         public void UpdateSequentialRules();
+
+        public void AddOption(string key, string value);
+        public string GetOption(string key);
     }
 }

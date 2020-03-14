@@ -8,24 +8,40 @@ namespace XmlTester.src
 {
     class XMLDoc:IXMLDocument, IXmlWriter
     {
-        public XmlDocument doc { get; set; }
+        private XmlNode root;
+        public XmlDocument Document { get; set; }
         public IApplication App { get; }
         public string FullPath { get; set; }
         public string Name { get; set; }
-        public XmlNode Root { get; set; }
+        public XmlNode Root
+        {
+            get
+            {
+                if (root == null)
+                {
+                    Document.Load(FullPath);
+                    root = Document.DocumentElement;
+                }
+                return root;
+            }
+            set
+            {
+                root = value;
+            }
+        }
         public List<ITestCase> TestCases { get; set; }
         public ITestSuiteSaver TestSuiteSaver { get; set; }
         public XMLDoc(string path, IApplication app, string name = "")
         {
             this.App = app;
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
+            Document = new XmlDocument();
+            //doc.Load(path);
             FullPath = path;
             if (name == string.Empty)
                 Name = Path.GetFileName(path);
             else
                 Name = name;
-            Root = doc.DocumentElement;
+            //Root = doc.DocumentElement;
             TestCases = new List<ITestCase>();
             TestSuiteSaver = new TestSuiteSaver(Path.Combine(app.DataFolder, app.TestSuiteFolder), this);
         }
@@ -33,14 +49,13 @@ namespace XmlTester.src
         public XMLDoc(string path, IEnumerable<ITestCase> tests, IApplication app, string name = "")
         {
             this.App = app;
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
+            Document = new XmlDocument();
             FullPath = path;
             if (name == string.Empty)
                 Name = Path.GetFileName(path);
             else
                 Name = name;
-            Root = doc.DocumentElement;
+            //Root = doc.DocumentElement;
             TestCases = new List<ITestCase>(tests);
             TestSuiteSaver = new TestSuiteSaver(Path.Combine(app.DataFolder, app.TestSuiteFolder), this);
             // set the testcase document for all tests

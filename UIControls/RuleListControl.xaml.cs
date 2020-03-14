@@ -37,13 +37,7 @@ namespace XmlTester.UIControls
         {
             ListViewItem item = (ListViewItem)source;
             IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
-            TreeViewItem tree_node;
-            ViewModel.TreeNodesMap.TryGetValue(rule.Path, out tree_node);
-            if (tree_node != null)
-            {
-                tree_node.IsSelected = true;
-                tree_node.BringIntoView();
-            }
+            ViewModel.View.ruleTree.SelectNode(rule.Path);
         }
     }
 }

@@ -24,9 +24,12 @@ namespace XmlTester.ViewsModels.RulePropViews
         public void Update()
         {
             TreeView tree = View.docTreeViewControl;
-            TreeViewItem selected_item = tree.SelectedItem as TreeViewItem;
-            //this.Path.Text = Utils.getFullPath(selected_item.DataCvontext as XmlNode);
-            //this.CurVal.Text = selected_item.Node.InnerText;
+            if (tree.SelectedItem != null)
+            {
+                ITreeElement selected_item = tree.SelectedItem as ITreeElement;
+                this.Path.Text = Utils.getFullPath(selected_item.Node);
+                this.CurVal.Text = selected_item.Node.InnerText;
+            }
         }
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)
         {
