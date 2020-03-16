@@ -172,8 +172,8 @@ namespace XmlTester.src
         public static void CopyXmlDocWithNewName(IXMLDocument doc)
         {
             string newPath = Path.Combine(doc.App.DataFolder, doc.App.DocumentsFolder, GetNewDocName());
-            doc.FullPath = newPath;
             doc.Save(newPath);
+            doc.FullPath = newPath;
         }
 
         public static void checkCreateFolder(string path)

@@ -35,7 +35,7 @@ namespace XmlTester.src
         {
             this.App = app;
             Document = new XmlDocument();
-            //doc.Load(path);
+            //Document.Load(path);
             FullPath = path;
             if (name == string.Empty)
                 Name = Path.GetFileName(path);

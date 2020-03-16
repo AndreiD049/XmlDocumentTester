@@ -44,7 +44,7 @@
         <Border Grid.Row="0" CornerRadius="2,2,2,2" BorderThickness="2,2,2,2" Margin="20 0 0 0" HorizontalAlignment="Right">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Image Source="/assets/search-engine.png" Height="20" Margin="10 0 10 0"/>
-                <TextBox MinWidth="200" BorderBrush="Red" VerticalAlignment="Center" Margin="0 0 10 0" x:Name="SearchBar" PreviewTextInput="Search_Changed" GotFocus="Got_Focus"/>
+                <TextBox MinWidth="200" BorderBrush="Red" VerticalAlignment="Center" Margin="0 0 10 0" x:Name="SearchBar" TextChanged="Search_Changed" GotFocus="Got_Focus"/>
             </StackPanel>
         </Border>
     </Grid>
