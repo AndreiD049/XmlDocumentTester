@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using XmlTester.Interfaces;
 using XmlTester.UIControls;
+using System.Diagnostics;
 using System.Collections.Specialized;
 using System.Collections.ObjectModel;
 using XmlTester.src;
@@ -76,6 +77,38 @@ namespace XmlTester
             newTestCaseExpander.IsExpanded = true;
             newTestCaseExpander.IsEnabled = true;
             newTestCaseExpander.Content = new EditTestCaseControlExpander(this, testCase);
+        }
+
+        private void Clone_Clicked(object source, RoutedEventArgs e)
+        {
+            Button btn = (Button)source;
+            if (btn != null)
+            {
+                ITestCase testCase = btn.DataContext as ITestCase;
+                if (testCase != null)
+                {
+                    ITestCase clone_case = testCase.Clone() as ITestCase;
+                    if (clone_case != null)
+                    {
+                        TestCases.Add(clone_case);
+                        Document.AddTestCase(clone_case);
+                        Document.TestSuiteSaver.SaveSuite();
+                    }
+                }
+            }
+        }
+
+        private void Open_Bridge_Clicked(object source, RoutedEventArgs e)
+        {
+            Button btn = (Button)source;
+            if (btn != null)
+            {
+                ITestCase testCase = btn.DataContext as ITestCase;
+                if (testCase != null)
+                {
+                    Process.Start("explorer", $@"{testCase.SaveLocation}");
+                }
+            }
         }
 
         private void Generate_Clicked(object source, RoutedEventArgs e)

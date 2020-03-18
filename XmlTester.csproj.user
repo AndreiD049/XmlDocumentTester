@@ -28,6 +28,9 @@
     <Compile Update="ViewsModels\RulePropViews\RandomIntegerRuleProps.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsModels\RulePropViews\RemoveNodeRuleProps.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -58,6 +61,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewsModels\RulePropViews\RandomIntegerRuleProps.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsModels\RulePropViews\RemoveNodeRuleProps.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewsModels\RulePropViews\RepeatNodeRuleProps.xaml">

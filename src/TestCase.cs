@@ -50,6 +50,7 @@ namespace XmlTester.src
         public IXMLDocument Document { get; set; }
         public IXMLDocument TransformedDocument { get; set; }
         public Dictionary<string, string> Options { get; set; }
+        public List<object> NodesToDelete { get; set; } = new List<object>();
 
         public void AddRule(string key, IXMLTransformRule rule)
         {
@@ -80,6 +81,23 @@ namespace XmlTester.src
                         rule.transform(x);
                 }
             }
+            foreach(XmlNode del in NodesToDelete)
+            {
+                if (del.NodeType == XmlNodeType.Element)
+                {
+                    XmlNode parent = del.ParentNode;
+                    if (parent != null)
+                    {
+                        parent.RemoveChild(del);
+                    }
+                }
+                else if (del.NodeType == XmlNodeType.Attribute)
+                {
+                    XmlAttribute attr = del as XmlAttribute;
+                    attr.OwnerElement.RemoveAttribute(attr.Name);
+                }
+            }
+            NodesToDelete.Clear();
         }
 
         public void setDocument(IXMLDocument doc)
@@ -139,6 +157,29 @@ namespace XmlTester.src
         {
             Options.TryGetValue(key, out string result);
             return result;
+        }
+
+        public object Clone()
+        {
+            Dictionary<string, string> opt_copy = new Dictionary<string, string>();
+            // Copy the options
+            foreach(string opt_key in Options.Keys)
+            {
+                opt_copy[opt_key] = Options[opt_key];
+            }
+
+            ITestCase clone = new TestCase(Name, Document, SaveLocation, new Dictionary<string, List<IXMLTransformRule>>(), opt_copy);
+            // Copy the rules dictionary
+            foreach(string rule_list_key in rules.Keys)
+            {
+                // for each rule of this key copy it
+                foreach(IXMLTransformRule rule in rules[rule_list_key])
+                {
+                    clone.AddRule(rule_list_key, rule);
+                }
+            }
+
+            return clone;
         }
     }
 }

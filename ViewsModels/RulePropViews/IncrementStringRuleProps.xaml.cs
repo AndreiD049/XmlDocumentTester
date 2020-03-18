@@ -28,7 +28,10 @@ namespace XmlTester.ViewsModels.RulePropViews
             {
                 ITreeElement selected_item = tree.SelectedItem as ITreeElement;
                 this.Path.Text = Utils.getFullPath(selected_item.Node);
-                this.CurVal.Text = selected_item.Node.InnerText;
+                if (this.CurVal.Text == string.Empty)
+                {
+                    this.CurVal.Text = selected_item.Node.InnerText;
+                }
             }
         }
         public new void Duplicate_Clicked(object sender, RoutedEventArgs e)

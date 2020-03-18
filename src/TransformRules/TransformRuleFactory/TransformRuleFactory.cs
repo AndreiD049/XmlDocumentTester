@@ -24,6 +24,8 @@ namespace XmlTester.src.TransformRules
                     return new IncrementStringTransformRuleFactory().createRule(t, node);
                 case TransformRuleTypes.SequenceString:
                     return new SequenceStringTransformRuleFactory().createRule(t, node);
+                case TransformRuleTypes.RemoveNode:
+                    return new RemoveNodeTransformRuleFactory().createRule(t, node);
                 default:
                     throw new Exception("Not valid Transform rule!");
             }

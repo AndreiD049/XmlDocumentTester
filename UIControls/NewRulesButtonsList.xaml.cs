@@ -67,11 +67,18 @@ namespace XmlTester.UIControls
             RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
             CollapseExpander();
         }
+        private void NewRemove_Clicked(object source, RoutedEventArgs e)
+        {
+            string path = Utils.getFullPath((View.ruleTree.docTreeViewer.SelectedItem as ITreeElement)?.Node);
+            RemoveNodeTransformRule rule = new RemoveNodeTransformRule(path);
+            RulePropsDrawer.DrawRule(View.ruleProps, rule, View);
+            CollapseExpander();
+        }
         private void NewIncrement_Clicked(object source, RoutedEventArgs e)
         {
             ITreeElement item = (ITreeElement)View.ruleTree.docTreeViewer.SelectedItem;
             string path = Utils.getFullPath(item?.Node as XmlNode);
-            string current_value = "00001";
+            string current_value = "";
             if (item != null)
                 current_value = ((XmlNode)item.Node).InnerText;
             IncrementStringTransformRule rule = new IncrementStringTransformRule(current_value, path);

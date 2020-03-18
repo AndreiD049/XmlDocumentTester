@@ -28,16 +28,30 @@ namespace XmlTester.UIControls
 
         private void UpdateRuleProps(object source, RoutedEventArgs e)
         {
-            ListViewItem item = (ListViewItem)source;
-            IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
-            ViewModel.DrawProps(rule);
+            try
+            {
+                ListViewItem item = (ListViewItem)source;
+                IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
+                ViewModel.DrawProps(rule);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Unexpected error occured, sorry: {err.Message}\n\n{err.StackTrace}");
+            }
         }
 
         private void SelectTreeViewItem(object source, RoutedEventArgs e)
         {
-            ListViewItem item = (ListViewItem)source;
-            IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
-            ViewModel.View.ruleTree.SelectNode(rule.Path);
-        }
+            try
+            {
+                ListViewItem item = (ListViewItem)source;
+                IXMLTransformRule rule = item.DataContext as IXMLTransformRule;
+                ViewModel.View.ruleTree.SelectNode(rule.Path);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show($"Unexpected error occured: {err.Message}\n\n{err.StackTrace}");
+            }
+}
     }
 }

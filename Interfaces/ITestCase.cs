@@ -4,7 +4,7 @@ using System.Xml;
 
 namespace XmlTester.Interfaces
 {
-    public interface ITestCase
+    public interface ITestCase: ICloneable
     {
         public string Name { get; set; }
         public string SaveLocation { get; set; }
@@ -14,6 +14,7 @@ namespace XmlTester.Interfaces
         /// </summary>
         public IXMLDocument Document { get; set; }
         public IXMLDocument TransformedDocument { get; set; }
+        public List<object> NodesToDelete { get; set; }
         /// <summary>
         /// Generates the XMLDocument by following the rules defined.
         /// If no rules defined. It should just copy the document

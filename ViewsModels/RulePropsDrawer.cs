@@ -35,6 +35,9 @@ namespace XmlTester.ViewsModels
                 case TransformRuleTypes.SequenceString:
                     DrawSequenceRule(panel, (SequenceTransformRule)rule, View);
                     break;
+                case TransformRuleTypes.RemoveNode:
+                    DrawRemoveRule(panel, (RemoveNodeTransformRule)rule, View);
+                    break;
                 default:
                     break;
             }
@@ -63,6 +66,13 @@ namespace XmlTester.ViewsModels
         private static void DrawRepeatNodeRule(StackPanel panel, RepeatNodeTransformRule rule, RuleViewer View)
         {
             RepeatNodeRuleProps drawer = new RepeatNodeRuleProps(rule, View);
+            panel.Children.Clear();
+            panel.Children.Add(drawer);
+        }
+
+        private static void DrawRemoveRule(StackPanel panel, RemoveNodeTransformRule rule, RuleViewer View)
+        {
+            RemoveNodeRuleProps drawer = new RemoveNodeRuleProps(rule, View);
             panel.Children.Clear();
             panel.Children.Add(drawer);
         }

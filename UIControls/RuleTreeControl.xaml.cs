@@ -135,7 +135,7 @@ namespace XmlTester.UIControls
             {
                 tw.IsExpanded = true;
                 XmlNode node = (tw.DataContext as ITreeElement)?.Node;
-                NodeMap.TryGetValue(Utils.getFullPath(node.ParentNode), out TreeViewItem parent);
+                NodeMap.TryGetValue(Utils.getFullPath(node?.ParentNode), out TreeViewItem parent);
                 while (parent != null)
                 {
                     parent.IsExpanded = true;
